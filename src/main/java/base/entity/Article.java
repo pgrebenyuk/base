@@ -6,6 +6,7 @@ public class Article {
     private double price;
     private int manufacturerId;
 
+    //зараз ідея каже, що ти не використовуєш цей метод, видали його, поки він не треба
     public int getId() {
         return id;
     }
@@ -14,6 +15,7 @@ public class Article {
         this.id = id;
     }
 
+    //зараз ідея каже, що ти не використовуєш цей метод, видали його, поки він не треба
     public String getArticle() {
         return article;
     }
@@ -22,6 +24,7 @@ public class Article {
         this.article = article;
     }
 
+    //зараз ідея каже, що ти не використовуєш цей метод, видали його, поки він не треба
     public double getPrice() {
         return price;
     }
@@ -30,6 +33,7 @@ public class Article {
         this.price = price;
     }
 
+    //зараз ідея каже, що ти не використовуєш цей метод, видали його, поки він не треба
     public int getManufacturerId() {
         return manufacturerId;
     }

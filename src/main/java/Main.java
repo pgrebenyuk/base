@@ -12,6 +12,13 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         Set<Article> articleAll = new HashSet();
         ArticleDAO dao = new ArticleDAO();
+        /*отримуємо об*єкт з дао
+        Optional<Article> articleOpt = dao.getById(2);
+        if (articleOpt.isPresent()) {
+            Article article = articleOpt.get();
+            //щось робиш
+        }*/
+
 //      Запутався в Optional
 //        Optional<Article> article = dao.getById(2);
 //        System.out.println(article.orElse(new Article()).toString());
