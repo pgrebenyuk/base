@@ -5,10 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DataBaseHandler<dbConection> extends Configs {
+public class DataBaseHandler {
+    public static String dbHost = "localhost";
+    public static String dbPort = "3306";
+    public static String dbUser = "root";
+    public static String dbPass = "root";
+    public static String dbName = "base1";
     public static Connection dbConection;
 
-    public static Connection getDbConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         Properties prop = new Properties();
         prop.setProperty("useSSL", "false");
         prop.setProperty("serverTimezone", "Europe/Kiev");

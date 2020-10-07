@@ -22,6 +22,14 @@ public class Articles {
         this.idManufacturer = idManufacturer;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getArticle() {
         return article;
     }
@@ -38,7 +46,7 @@ public class Articles {
         this.price = price;
     }
 
-    public int getManufacturer() {
+    public Integer getManufacturer() {
         return idManufacturer;
     }
 

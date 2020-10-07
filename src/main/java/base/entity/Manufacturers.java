@@ -1,7 +1,6 @@
 package base.entity;
 
 public class Manufacturers {
-
     private Integer id;
     private String manufacturer;
 
