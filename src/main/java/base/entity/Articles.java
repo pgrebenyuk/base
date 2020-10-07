@@ -54,4 +54,10 @@ public class Articles {
         this.idManufacturer = manufacturer;
     }
 
+    @Override
+    public String toString() {
+        String string = "id=" + id + ": article=" + article + ": price="
+                + price + ": idManufacturer=" + idManufacturer;
+        return string;
+    }
 }

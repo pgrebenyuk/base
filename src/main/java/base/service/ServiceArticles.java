@@ -1,9 +1,9 @@
 package base.service;
 import base.entity.Articles;
-import base.entity.BaseModel;
-import java.util.ArrayList;
+
+import java.util.Set;
 
 public interface ServiceArticles {
-    void getAll();
-    void getById(Integer id);
+    Set getAll();
+    Articles getById(Integer id);
 }
