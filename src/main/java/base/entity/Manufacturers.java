@@ -1,5 +1,6 @@
 package base.entity;
 
+//назва в однині
 public class Manufacturers {
     private Integer id;
     private String manufacturer;
