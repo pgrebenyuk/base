@@ -11,18 +11,15 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        //перемісти цю стрічку туди, де ти будеш використовувати змінну
-        //створюй елементи прям там, де будеш використовувати(якщо є така можливість)
-        Set<Article> articleAll = new HashSet();
+
         ArticleDAO dao = new ArticleDAO();
-
-
         Optional<Article> articleOpt = dao.getById(2);
         if (articleOpt.isPresent()) {
             Article article = articleOpt.get();
             System.out.println(article);
         }
 
+        Set<Article> articleAll = new HashSet();
         articleAll.addAll(dao.getAll());
         for (Article art : articleAll) {
             System.out.println(art);
