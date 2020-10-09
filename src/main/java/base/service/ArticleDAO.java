@@ -8,40 +8,31 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-//що це за <connection>? воно тобі не потрібне
-public class ArticleDAO<connection> implements ArticleService {
-    //краща назва COLUMN_ID_ARTICLE
-    //всі інші колонки так само
-    static private final String ID_ARTICLE = "id_article";
-    //спочатку модифікатор потім статік потім final, подивись в DataBaseConnectionManager
-    //private static final
-    static private final String ARTICLE = "article";
-    static private final String PRICE = "price";
-    static private final String ID_MANUFACTURER = "id_manufacturer";
-    //краща назва SQL_SELECT_ALL
-    static private final String SQL = "SELECT * FROM articles";
+public class ArticleDAO implements ArticleService {
+    private static final String COLUMN_ID_ARTICLE = "id_article";
+    private static final String COLUMN_ARTICLE = "article";
+    private static final String COLUMN_PRICE = "price";
+    private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
+    private static final String SQL_SELECT_ALL = "SELECT * FROM articles";
+    private static final String SQL_BY_ID = "SELECT * FROM articles WHERE id_article=?";
 
     private Connection connection;
 
-
-    //це має бути конструктор, щоб при створенні об*єкта ArticleDAO ініціалізувалась ця змінна
-    //переправ на конструктор
-    {
+    public ArticleDAO() {
         try {
-            connection = DataBaseConnectionManager.getConnection();
+            this.connection = DataBaseConnectionManager.getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-
     private Article extractUserFromResultSet(ResultSet rs) throws SQLException {
         Article article = new Article();
 
-        article.setId(rs.getInt(ID_ARTICLE));
-        article.setArticle(rs.getString(ARTICLE));
-        article.setPrice(rs.getDouble(PRICE));
-        article.setManufacturerId(rs.getInt(ID_MANUFACTURER));
+        article.setId(rs.getInt(COLUMN_ID_ARTICLE));
+        article.setArticle(rs.getString(COLUMN_ARTICLE));
+        article.setPrice(rs.getDouble(COLUMN_PRICE));
+        article.setManufacturerId(rs.getInt(COLUMN_ID_MANUFACTURER));
 
         return article;
     }
@@ -52,12 +43,10 @@ public class ArticleDAO<connection> implements ArticleService {
         try {
             Statement statement = connection.createStatement();
             Set<Article> articlesAll = new HashSet();
-            //створив раніше, ніж використовуєш
-            Article article;
-            ResultSet resultSet = statement.executeQuery(SQL);
+            ResultSet resultSet = statement.executeQuery(SQL_SELECT_ALL);
 
             while (resultSet.next()) {
-                article = extractUserFromResultSet(resultSet);
+                Article article = extractUserFromResultSet(resultSet);
                 articlesAll.add(article);
             }
             return articlesAll;
@@ -65,17 +54,15 @@ public class ArticleDAO<connection> implements ArticleService {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
-        //не повертай null, поверни пустий set
-        return null;
+        return new HashSet();
     }
 
     @Override
     public Optional<Article> getById(int id) {
         try {
-            PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM articles WHERE id_article=?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM articles WHERE id_article=?");
             statement.setInt(1, id);
-            ResultSet resultSet = statement.getResultSet();
+            ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
                 return Optional.of(extractUserFromResultSet(resultSet));
@@ -84,8 +71,9 @@ public class ArticleDAO<connection> implements ArticleService {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
-        //якщ нічого немає то вертай Optional.empty()
-        return Optional.of(new Article());
+        return Optional.empty();
     }
+
+
 
 }

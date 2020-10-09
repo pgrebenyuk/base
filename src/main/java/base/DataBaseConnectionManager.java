@@ -20,9 +20,7 @@ public class DataBaseConnectionManager {
         prop.setProperty("password", DB_PASS);
         String connectionString = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT + "/" + DB_NAME;
 
-        //ідея підкреслює помилку в слові
-        Connection dbConection = DriverManager.getConnection(connectionString, prop);
-        return dbConection;
+        return DriverManager.getConnection(connectionString, prop);
     }
 
 }
