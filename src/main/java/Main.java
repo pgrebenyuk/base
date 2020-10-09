@@ -1,7 +1,5 @@
 import base.entity.Article;
 import base.service.ArticleDAO;
-
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Optional;
