@@ -14,6 +14,7 @@ public class ArticleDAO implements ArticleService {
     private static final String COLUMN_PRICE = "price";
     private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
     private static final String SQL_SELECT_ALL = "SELECT * FROM articles";
+    //забув використати
     private static final String SQL_BY_ID = "SELECT * FROM articles WHERE id_article=?";
 
     private Connection connection;
@@ -54,12 +55,16 @@ public class ArticleDAO implements ArticleService {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
+        //return articlesALL;
+        //краще так, тоді вона повернеться або пуста, або з кількома вже записаними елементами
+        // (якщо вдруг помилка сталась на 3 елементі, то 2 будуть в сеті, якщо на 1, то верне пустий сет)
         return new HashSet();
     }
 
     @Override
     public Optional<Article> getById(int id) {
         try {
+            //використай константу
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM articles WHERE id_article=?");
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();

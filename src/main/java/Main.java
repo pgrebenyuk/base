@@ -11,6 +11,8 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
+        //перемісти цю стрічку туди, де ти будеш використовувати змінну
+        //створюй елементи прям там, де будеш використовувати(якщо є така можливість)
         Set<Article> articleAll = new HashSet();
         ArticleDAO dao = new ArticleDAO();
 
