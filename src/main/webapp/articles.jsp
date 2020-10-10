@@ -9,7 +9,7 @@
 <body>
     <c:forEach var="article" items="${articlesAll}">
         <div>id: ${article.id}</div>
-        <div>article: ${article.article}</div>
+        <div>name: ${article.name}</div>
         <div>price: ${article.price}</div>
         <div>manufacturerId: ${article.manufacturerId}</div>
     </c:forEach>

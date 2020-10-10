@@ -14,20 +14,16 @@ import java.util.Set;
 
 @WebServlet("/articles")
 public class ArticlesServlet extends HttpServlet {
+    private static final String PAGE = "/articles.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        try {
-            ArticleDAO dao = new ArticleDAO();
-            Set<Article> articlesAll = new HashSet();
-            articlesAll.addAll(dao.getAll());
-            req.setAttribute("articlesAll",articlesAll );
-        //тут ніхто не кидає цю помилку, ти скопіював це трай я думаю
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-        // /articles.jsp можна в константу
+
+        ArticleDAO dao = new ArticleDAO();
+        Set<Article> articlesAll = new HashSet();
+        articlesAll.addAll(dao.getAll());
+        req.setAttribute("articlesAll",articlesAll );
         getServletContext().getRequestDispatcher("/articles.jsp").forward(req, resp);
     }
 }

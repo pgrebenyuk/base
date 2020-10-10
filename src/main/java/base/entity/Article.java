@@ -3,8 +3,7 @@ package base.entity;
 public class Article {
 
     private int id;
-    //зроби це поле name, а то путає так
-    private String article;
+    private String name;
     private double price;
     private int manufacturerId;
 
@@ -12,8 +11,8 @@ public class Article {
         this.id = id;
     }
 
-    public void setArticle(String article) {
-        this.article = article;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setPrice(Double price) {
@@ -28,8 +27,8 @@ public class Article {
         return id;
     }
 
-    public String getArticle() {
-        return article;
+    public String getName() {
+        return name;
     }
 
     public double getPrice() {
@@ -42,7 +41,7 @@ public class Article {
 
     @Override
     public String toString() {
-        String string = "id=" + id + ": article=" + article + ": price="
+        String string = "id=" + id + ": article=" + name + ": price="
                 + price + ": idManufacturer=" + manufacturerId;
         return string;
     }

@@ -1,15 +1,14 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <title>Article</title>
 </head>
 <body>
-<%--сюди передавай просто article об*єкт і доступайся до його параметрі--%>
-<%--і відступ не зробив для div--%>
-<div>id: ${id}</div>
-<div>article: ${article}</div>
-<div>price: ${price}</div>
-<div>manufacturerId: ${manufacturerId}</div>
+    <div>id: ${article.id}</div>
+    <div>name: ${article.name}</div>
+    <div>price: ${article.price}</div>
+    <div>manufacturerId: ${article.manufacturerId}</div>
 </body>
 </html>

@@ -30,7 +30,7 @@ public class ArticleDAO implements ArticleService {
         Article article = new Article();
 
         article.setId(rs.getInt(COLUMN_ID_ARTICLE));
-        article.setArticle(rs.getString(COLUMN_ARTICLE));
+        article.setName(rs.getString(COLUMN_ARTICLE));
         article.setPrice(rs.getDouble(COLUMN_PRICE));
         article.setManufacturerId(rs.getInt(COLUMN_ID_MANUFACTURER));
 
