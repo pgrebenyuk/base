@@ -23,7 +23,9 @@ public class ArticlesServlet extends HttpServlet {
         ArticleDAO dao = new ArticleDAO();
         Set<Article> articlesAll = new HashSet();
         articlesAll.addAll(dao.getAll());
+        //відступ між параметрами
         req.setAttribute("articlesAll",articlesAll );
+        //PAGE не використав
         getServletContext().getRequestDispatcher("/articles.jsp").forward(req, resp);
     }
 }
