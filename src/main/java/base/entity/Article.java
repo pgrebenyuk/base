@@ -23,6 +23,22 @@ public class Article {
         this.manufacturerId = manufacturer;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getArticle() {
+        return article;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getManufacturerId() {
+        return manufacturerId;
+    }
+
     @Override
     public String toString() {
         String string = "id=" + id + ": article=" + article + ": price="

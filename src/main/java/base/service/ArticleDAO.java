@@ -73,7 +73,5 @@ public class ArticleDAO implements ArticleService {
         }
         return Optional.empty();
     }
-//ну таке собі зауваження, але удали кучу пропусків
-
 
 }
