@@ -14,6 +14,7 @@ import java.util.Optional;
 @WebServlet("/article")
 public class ArticleServlet extends HttpServlet {
     private static final String PAGE = "/article.jsp";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

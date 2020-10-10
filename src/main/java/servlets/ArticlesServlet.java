@@ -15,10 +15,10 @@ import java.util.Set;
 @WebServlet("/articles")
 public class ArticlesServlet extends HttpServlet {
     private static final String PAGE = "/articles.jsp";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
 
         ArticleDAO dao = new ArticleDAO();
         Set<Article> articlesAll = new HashSet();
