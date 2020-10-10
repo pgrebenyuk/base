@@ -2,6 +2,7 @@ package base.entity;
 
 public class Manufacturer {
     private int id;
+    //і тут name зроби
     private String manufacturer;
 
     public int getId() {

@@ -3,6 +3,7 @@ package base.entity;
 public class Article {
 
     private int id;
+    //зроби це поле name, а то путає так
     private String article;
     private double price;
     private int manufacturerId;

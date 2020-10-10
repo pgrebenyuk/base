@@ -30,6 +30,8 @@ public class ArticleServlet extends HttpServlet {
 
             if (articleOpt.isPresent()) {
                 Article article = articleOpt.get();
+                //ти замість цих 4 атрибутів можеш записати всього 1 і записати в нього цей об*єкт
+                //а вже в jsp виводити як ${article.id} і т.д.
                 req.setAttribute("id", id);
                 req.setAttribute("article", article.getArticle());
                 req.setAttribute("price", article.getPrice());
@@ -38,6 +40,7 @@ public class ArticleServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
+        // /article.jsp можна в константу
         getServletContext().getRequestDispatcher("/article.jsp").forward(req, resp);
     }
 }
