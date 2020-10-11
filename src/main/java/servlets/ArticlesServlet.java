@@ -1,7 +1,7 @@
 package servlets;
 
 import base.entity.Article;
-import base.service.ArticleDAO;
+import base.repository.ArticleRepositoryImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +20,7 @@ public class ArticlesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        ArticleDAO dao = new ArticleDAO();
+        ArticleRepositoryImpl dao = new ArticleRepositoryImpl();
         Set<Article> articlesAll = new HashSet();
         articlesAll.addAll(dao.getAll());
         req.setAttribute("articlesAll", articlesAll);

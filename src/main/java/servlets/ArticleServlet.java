@@ -1,7 +1,7 @@
 package servlets;
 
 import base.entity.Article;
-import base.service.ArticleDAO;
+import base.repository.ArticleRepositoryImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +22,7 @@ public class ArticleServlet extends HttpServlet {
         String idString = req.getParameter("id");
 
         try {
-            ArticleDAO dao = new ArticleDAO();
+            ArticleRepositoryImpl dao = new ArticleRepositoryImpl();
             int id = Integer.parseInt(idString);
             Optional<Article> articleOpt = dao.getById(id);
 
