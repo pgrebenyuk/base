@@ -1,6 +1,8 @@
 package servlets;
 
+import base.repository.ArticleRepositoryImpl;
 import base.service.ArticleService;
+import base.service.ArticleServiceImpl;
 import base.service.ManufacturerService;
 
 import javax.servlet.ServletException;
@@ -20,9 +22,8 @@ public class ArticleCreatedServlet extends HttpServlet {
         String name = req.getParameter("name");
         String priceString = req.getParameter("price");
         double price = Double.parseDouble(priceString);
-        int id = ArticleService.size() + 1;
-        int idManufacturer = ManufacturerService.idRandom();
-        ArticleService.insertRow(id, name, price, idManufacturer);
+        new ArticleRepositoryImpl().createArticle(name, price);
+        int id = new ArticleServiceImpl().size();
 
         getServletContext().getRequestDispatcher(PAGE + id).forward(req, resp);
     }

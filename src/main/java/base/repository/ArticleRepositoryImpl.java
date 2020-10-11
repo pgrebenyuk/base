@@ -2,6 +2,8 @@ package base.repository;
 
 import base.DataBaseConnectionManager;
 import base.entity.Article;
+import base.service.ArticleServiceImpl;
+import base.service.ManufacturerServiceImpl;
 
 import java.sql.*;
 import java.util.HashSet;
@@ -77,7 +79,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
-    public void insertRow(int id, String name, double prise, int idManufacturer) {
+    public void createArticle(int id, String name, double prise, int idManufacturer) {
         try {
             PreparedStatement statement = connection.prepareStatement(SQL_INSERT);
             statement.setInt(1, id);
@@ -89,4 +91,20 @@ public class ArticleRepositoryImpl implements ArticleRepository {
             throwable.printStackTrace();
         }
     }
+
+    @Override
+    public void createArticle(String name, double prise) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL_INSERT);
+            statement.setInt(1, new ArticleServiceImpl().size() + 1);
+            statement.setString(2, name);
+            statement.setDouble(3, prise);
+            statement.setInt(4, (int) (Math.random() * new ManufacturerServiceImpl().size() + 1));
+            statement.executeUpdate();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+    }
+
+
 }

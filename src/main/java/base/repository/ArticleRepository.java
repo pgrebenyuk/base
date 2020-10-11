@@ -7,5 +7,6 @@ import java.util.Set;
 public interface ArticleRepository {
     Set<Article> getAll();
     Optional<Article> getById(int id);
-    void insertRow(int id, String name, double prise, int idManufacturer);
+    void createArticle(int id, String name, double prise, int idManufacturer);
+    void createArticle(String name, double prise);
 }
