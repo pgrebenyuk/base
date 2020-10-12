@@ -10,8 +10,8 @@ import java.util.Set;
 public class ArticleServiceImpl implements ArticleService {
     private final ArticleRepository articleRepository;
 
-    public ArticleServiceImpl() {
-        this.articleRepository = new ArticleRepositoryImpl();
+    public ArticleServiceImpl(ArticleRepositoryImpl articleRepository) {
+        this.articleRepository = articleRepository;
     }
 
     @Override
@@ -20,17 +20,13 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Article getArticle(int id) {
+    public Optional<Article> getArticle(int id) {
         Article article = new Article();
-        try {
-            Optional<Article> articleOpt = articleRepository.getById(id);
-            if (articleOpt.isPresent()) {
-                article = articleOpt.get();
-            }
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
+        Optional<Article> articleOpt = articleRepository.getById(id);
+        if (articleOpt.isPresent()) {
+            article = articleOpt.get();
         }
-        return article;
+        return Optional.of(article);
     }
 
     @Override

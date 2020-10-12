@@ -1,5 +1,5 @@
 package base.service;
 
 public interface ManufacturerService {
-    int getManufacturersCount();
+    int getIdManufacturersRandom();
 }
