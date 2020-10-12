@@ -49,7 +49,6 @@ public class ManufacturerRepositoryImpl implements ManufacturerRepository {
             throwable.printStackTrace();
         }
         return manufacturersAll;
-
     }
 
 }

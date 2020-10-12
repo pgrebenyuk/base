@@ -2,8 +2,6 @@ package base.repository;
 
 import base.DataBaseConnectionManager;
 import base.entity.Article;
-import base.service.ArticleServiceImpl;
-import base.service.ManufacturerServiceImpl;
 
 import java.sql.*;
 import java.util.HashSet;
@@ -77,45 +75,24 @@ public class ArticleRepositoryImpl implements ArticleRepository {
         }
         return Optional.empty();
     }
+    public int getMaxId() {
+        Set<Article> articlesAll = new ArticleRepositoryImpl().getAll();
+        return articlesAll.stream().map(Article::getId).max(Integer::compare).get();
+    }
 
-    //має бути без id, щоб база сама генерувала
     @Override
-    public void createArticle(int id, String name, double prise, int idManufacturer) {
+    public void createRow(String name, double price, int idManufacturer) {
+        int newId = new ArticleRepositoryImpl().getMaxId() + 1;
         try {
             PreparedStatement statement = connection.prepareStatement(SQL_INSERT);
-            statement.setInt(1, id);
+            statement.setInt(1, newId);
             statement.setString(2, name);
-            statement.setDouble(3, prise);
+            statement.setDouble(3, price);
             statement.setInt(4, idManufacturer);
             statement.executeUpdate();
-
-            //якось так можна буде получити згенероане id з бази
-            //цей метод має його повертати
-            /*ResultSet resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                int newId = resultSet.getInt(1);
-            }*/
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
-
-    //цього методу не треба взагалі
-    @Override
-    public void createArticle(String name, double prise) {
-        try {
-            PreparedStatement statement = connection.prepareStatement(SQL_INSERT);
-            statement.setInt(1, new ArticleServiceImpl().size() + 1);
-            statement.setString(2, name);
-            statement.setDouble(3, prise);
-            //цей рандом має вираховуватись в сервісі товарів
-            //і після того всі 3 параметри для товара мають передатись в репозиторій товарів в метод вище
-            statement.setInt(4, (int) (Math.random() * new ManufacturerServiceImpl().size() + 1));
-            statement.executeUpdate();
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-    }
-
 
 }

@@ -1,5 +1,5 @@
-package base.service; //між пакетами і класами треба відступами 1 стрічку
+package base.service;
+
 public interface ArticleService {
-    //для правильної роботи в цьому інтерфейсі зараз має бути метод для створення товару з 2 параметрами
-    int size();
+    int createArticleReturnId(String name, double price);
 }
