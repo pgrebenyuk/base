@@ -1,7 +1,11 @@
 package base.service;
 
+import base.entity.Article;
+
+import java.util.Set;
+
 public interface ArticleService {
-    //не треба пояснювати в назві методу, що ти повернеш
-    //createArticle буде краще
-    int createArticleReturnId(String name, double price);
+    int createArticle(String name, double price, int idManufactured);
+    Article getArticle(int id);
+    Set<Article> getAll();
 }

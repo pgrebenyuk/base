@@ -1,6 +1,9 @@
 package servlets;
 
+import base.service.ArticleService;
 import base.service.ArticleServiceImpl;
+import base.service.ManufacturerService;
+import base.service.ManufacturerServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Random;
 
 @WebServlet("/create-article")
 public class ArticleCreatedServlet extends HttpServlet {
@@ -19,11 +23,10 @@ public class ArticleCreatedServlet extends HttpServlet {
         String name = req.getParameter("name");
         String priceString = req.getParameter("price");
         double price = Double.parseDouble(priceString);
-        //правильно створювати змінну отак
-        //ArticleService articleService = new ArticleServiceImpl();
-        //так ти працюєш через інтерфейс і якщо зміниш реалізацію, то код не зламається
-        ArticleServiceImpl articleServiceImpl = new ArticleServiceImpl();
-        int id = articleServiceImpl.createArticleReturnId(name, price);
+        ManufacturerService manufacturerService = new ManufacturerServiceImpl();
+        int idManufactured = new Random().nextInt(manufacturerService.getManufacturersCount()) + 1;
+        ArticleService articleService = new ArticleServiceImpl();
+        int id = articleService.createArticle(name, price, idManufactured);
         req.setAttribute("id", id);
         getServletContext().getRequestDispatcher(PAGE).forward(req, resp);
     }
