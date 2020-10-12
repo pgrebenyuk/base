@@ -9,6 +9,7 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Override
     public int getManufacturersCount() {
+        //використовуй інтерфейс
         ManufacturerRepositoryImpl dao = new ManufacturerRepositoryImpl();
         Set<Manufacturer> manufacturerAll = dao.getAll();
         return manufacturerAll.size();

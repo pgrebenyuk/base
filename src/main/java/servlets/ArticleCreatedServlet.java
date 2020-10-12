@@ -19,6 +19,9 @@ public class ArticleCreatedServlet extends HttpServlet {
         String name = req.getParameter("name");
         String priceString = req.getParameter("price");
         double price = Double.parseDouble(priceString);
+        //правильно створювати змінну отак
+        //ArticleService articleService = new ArticleServiceImpl();
+        //так ти працюєш через інтерфейс і якщо зміниш реалізацію, то код не зламається
         ArticleServiceImpl articleServiceImpl = new ArticleServiceImpl();
         int id = articleServiceImpl.createArticleReturnId(name, price);
         req.setAttribute("id", id);

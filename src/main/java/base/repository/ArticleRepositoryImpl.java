@@ -75,6 +75,8 @@ public class ArticleRepositoryImpl implements ArticleRepository {
         }
         return Optional.empty();
     }
+
+    //цей метод не потрібний, якщо база сама буде створювати id
     public int getMaxId() {
         Set<Article> articlesAll = new ArticleRepositoryImpl().getAll();
         return articlesAll.stream().map(Article::getId).max(Integer::compare).get();
@@ -82,6 +84,11 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 
     @Override
     public void createRow(String name, double price, int idManufacturer) {
+        //я ж тобі перед цим писав, що id створить сама база даних,
+        // якщо в ній виставити галочку автоінкремент на це поле
+        //і тоді тобі не прийдеться викликати цю стрічку нижче
+        //+ ти в класі ArticleRepositoryImpl створюєш нову змінну ArticleRepositoryImpl і викликаєш її метод
+        //а міг би просто викликати метод int newId = new getMaxId() + 1;
         int newId = new ArticleRepositoryImpl().getMaxId() + 1;
         try {
             PreparedStatement statement = connection.prepareStatement(SQL_INSERT);
