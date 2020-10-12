@@ -21,6 +21,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Optional<Article> getArticle(int id) {
+        //весь цей метод має бути всього return articleRepository.getById(id);
         Article article = new Article();
         Optional<Article> articleOpt = articleRepository.getById(id);
         if (articleOpt.isPresent()) {

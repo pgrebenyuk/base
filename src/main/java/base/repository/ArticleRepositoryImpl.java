@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+//переназви MySqlArticleRepository, того що цей репозиторій відповідає за роботу з mysql
 public class ArticleRepositoryImpl implements ArticleRepository {
     private static final String COLUMN_ID_ARTICLE = "id_article";
     private static final String COLUMN_ARTICLE = "article";

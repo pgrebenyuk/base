@@ -14,7 +14,9 @@ import java.io.IOException;
 
 @WebServlet("/article")
 public class ArticleServlet extends HttpServlet {
+    //це не повинно бути статичним
     private static final String PAGE = "/article.jsp";
+    //це не повинно бути статичним
     private static ArticleService articleService = new ArticleServiceImpl(new ArticleRepositoryImpl());
 
     @Override

@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
+//переназви MySqlManufacturerRepository, того що цей репозиторій відповідає за роботу з mysql
 public class ManufacturerRepositoryImpl implements ManufacturerRepository {
     private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
     private static final String COLUMN_MANUFACTURER = "manufacturer";

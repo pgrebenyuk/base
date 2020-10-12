@@ -15,7 +15,9 @@ import java.util.Set;
 
 @WebServlet("/articles")
 public class ArticlesServlet extends HttpServlet {
+    //це не повинно бути статичним
     private static final String PAGE = "/articles.jsp";
+    //це не повинно бути статичним
     private static ArticleService articleService = new ArticleServiceImpl(new ArticleRepositoryImpl());
 
     @Override

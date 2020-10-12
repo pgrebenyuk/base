@@ -15,9 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/create-article")
+//краща назва CreateArticleServlet
 public class ArticleCreatedServlet extends HttpServlet {
+    //це не повинно бути статичним
+    //і переназви jsp на щось типу newArticleCreated.jsp
     private static final String PAGE = "/createArticleByName&Price.jsp";
+    //це не повинно бути статичним
     private static ArticleService articleService = new ArticleServiceImpl(new ArticleRepositoryImpl());
+    //це не повинно бути статичним
     private static ManufacturerService manufacturerService = new ManufacturerServiceImpl(new ManufacturerRepositoryImpl());
 
     @Override
