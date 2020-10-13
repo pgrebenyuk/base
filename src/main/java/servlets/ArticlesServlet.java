@@ -1,7 +1,7 @@
 package servlets;
 
 import base.entity.Article;
-import base.repository.ArticleRepositoryImpl;
+import base.repository.MySqlArticleRepository;
 import base.service.ArticleService;
 import base.service.ArticleServiceImpl;
 
@@ -15,10 +15,8 @@ import java.util.Set;
 
 @WebServlet("/articles")
 public class ArticlesServlet extends HttpServlet {
-    //це не повинно бути статичним
-    private static final String PAGE = "/articles.jsp";
-    //це не повинно бути статичним
-    private static ArticleService articleService = new ArticleServiceImpl(new ArticleRepositoryImpl());
+    private final String PAGE = "/articles.jsp";
+    private ArticleService articleService = new ArticleServiceImpl(new MySqlArticleRepository());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

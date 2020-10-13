@@ -1,5 +1,5 @@
 import base.entity.Article;
-import base.repository.ArticleRepositoryImpl;
+import base.repository.MySqlArticleRepository;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Optional;
@@ -11,8 +11,8 @@ public class Main {
     public static void main(String[] args) throws SQLException {
 //        new ArticleDAO().insertRow(5, "ewjrgh", 1.56, 7);
 
-        ArticleRepositoryImpl dao = new ArticleRepositoryImpl();
-        Optional<Article> articleOpt = dao.getById(2);
+        MySqlArticleRepository dao = new MySqlArticleRepository();
+        Optional<Article> articleOpt = dao.articleId(2);
         if (articleOpt.isPresent()) {
             Article article = articleOpt.get();
             System.out.println(article);

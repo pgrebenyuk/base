@@ -8,8 +8,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-//переназви MySqlArticleRepository, того що цей репозиторій відповідає за роботу з mysql
-public class ArticleRepositoryImpl implements ArticleRepository {
+public class MySqlArticleRepository implements ArticleRepository {
     private static final String COLUMN_ID_ARTICLE = "id_article";
     private static final String COLUMN_ARTICLE = "article";
     private static final String COLUMN_PRICE = "price";
@@ -21,7 +20,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 
     private Connection connection;
 
-    public ArticleRepositoryImpl() {
+    public MySqlArticleRepository() {
         try {
             this.connection = DataBaseConnectionManager.getConnection();
         } catch (SQLException e) {
@@ -61,7 +60,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
-    public Optional<Article> getById(int id) {
+    public Optional<Article> articleId(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement(SQL_BY_ID);
             statement.setInt(1, id);

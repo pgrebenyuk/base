@@ -6,6 +6,6 @@ import java.util.Set;
 
 public interface ArticleRepository {
     Set<Article> getAll();
-    Optional<Article> getById(int id);
+    Optional<Article> articleId(int id);
     int createArticle(String name, double price, int idManufacturer);
 }

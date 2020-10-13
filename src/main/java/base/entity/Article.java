@@ -7,6 +7,16 @@ public class Article {
     private double price;
     private int manufacturerId;
 
+    public Article() {
+    }
+
+    public Article(int id, String name, double price, int manufacturerId) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.manufacturerId = manufacturerId;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
