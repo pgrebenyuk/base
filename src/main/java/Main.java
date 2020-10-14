@@ -5,7 +5,8 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-
+//зроби так, що спрінг в цей клас заавтовайрив ArticleService
+//і щоб ти зміг використати це поле в цьому класі, тобто викликати метод якийсь
 public class Main {
 
     public static void main(String[] args) throws SQLException {
