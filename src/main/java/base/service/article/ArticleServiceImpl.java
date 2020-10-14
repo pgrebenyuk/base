@@ -1,5 +1,6 @@
 package base.service.article;
 
+//поудаляй
 import base.configs.MyConfig;
 import base.entity.Article;
 import base.repository.article.ArticleRepository;
