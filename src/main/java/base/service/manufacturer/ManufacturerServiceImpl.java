@@ -1,7 +1,7 @@
-package base.service;
+package base.service.manufacturer;
 
 import base.entity.Manufacturer;
-import base.repository.ManufacturerRepository;
+import base.repository.manufacturer.ManufacturerRepository;
 
 import java.util.Random;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package base.repository;
+package base.repository.article;
 import base.entity.Article;
 
 import java.util.Optional;

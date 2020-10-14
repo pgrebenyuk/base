@@ -1,11 +1,11 @@
-package base.repository;
+package base.repository.article;
 
 import base.entity.Article;
 
 import java.util.*;
 
 public class LocalArticleRepository implements ArticleRepository {
-    private static Set<Article> articles;
+    private Set<Article> articles;
 
     public LocalArticleRepository() {
         articles = new HashSet<>(Arrays.asList(
@@ -22,12 +22,17 @@ public class LocalArticleRepository implements ArticleRepository {
 
     @Override
     public Optional<Article> articleId(int idArtical) {
-        return articles.stream().filter(article -> article.getId() == idArtical).findFirst();
+        return articles.stream()
+                .filter(article -> article.getId() == idArtical)
+                .findFirst();
     }
 
     @Override
     public int createArticle(String name, double price, int idManufacturer) {
-        int id = articles.stream().map(x -> x.getId()).max(Integer::compare).get() + 1;
+        int id = articles.stream()
+                .map(Article::getId)
+                .max(Integer::compare)
+                .get() + 1;
         Article article = new Article();
         article.setId(id);
         article.setName(name);

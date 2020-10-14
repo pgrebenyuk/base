@@ -1,9 +1,9 @@
 package servlets;
 
 import base.entity.Article;
-import base.repository.LocalArticleRepository;
-import base.service.ArticleService;
-import base.service.ArticleServiceImpl;
+import base.repository.article.LocalArticleRepository;
+import base.service.article.ArticleService;
+import base.service.article.ArticleServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

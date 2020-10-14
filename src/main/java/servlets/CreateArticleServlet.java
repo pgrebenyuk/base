@@ -1,11 +1,11 @@
 package servlets;
 
-import base.repository.LocalArticleRepository;
-import base.repository.LocalManufacturerRepository;
-import base.service.ArticleService;
-import base.service.ArticleServiceImpl;
-import base.service.ManufacturerService;
-import base.service.ManufacturerServiceImpl;
+import base.repository.article.LocalArticleRepository;
+import base.repository.manufacturer.LocalManufacturerRepository;
+import base.service.article.ArticleService;
+import base.service.article.ArticleServiceImpl;
+import base.service.manufacturer.ManufacturerService;
+import base.service.manufacturer.ManufacturerServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

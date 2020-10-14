@@ -1,4 +1,4 @@
-package base.repository;
+package base.repository.manufacturer;
 
 import base.entity.Manufacturer;
 import java.util.Set;

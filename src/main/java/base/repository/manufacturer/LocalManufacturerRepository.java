@@ -1,4 +1,4 @@
-package base.repository;
+package base.repository.manufacturer;
 
 import base.entity.Manufacturer;
 
@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class LocalManufacturerRepository implements ManufacturerRepository {
-    private static Set<Manufacturer> manufacturers;
+    private Set<Manufacturer> manufacturers;
 
     public LocalManufacturerRepository() {
         manufacturers = new HashSet<>(Arrays.asList(

@@ -2,6 +2,7 @@ package base.repository;
 
 import base.DataBaseConnectionManager;
 import base.entity.Manufacturer;
+import base.repository.manufacturer.ManufacturerRepository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

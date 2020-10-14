@@ -1,7 +1,7 @@
-package base.service;
+package base.service.article;
 
 import base.entity.Article;
-import base.repository.ArticleRepository;
+import base.repository.article.ArticleRepository;
 import java.util.Optional;
 import java.util.Set;
 

@@ -1,5 +1,5 @@
 import base.entity.Article;
-import base.repository.MySqlArticleRepository;
+import base.repository.article.MySqlArticleRepository;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Optional;

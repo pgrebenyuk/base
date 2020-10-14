@@ -1,4 +1,4 @@
-package base.service;
+package base.service.article;
 
 import base.entity.Article;
 
