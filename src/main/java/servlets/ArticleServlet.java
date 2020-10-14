@@ -20,6 +20,8 @@ import java.util.Optional;
 public class ArticleServlet extends HttpServlet {
     private static final String PAGE = "/article.jsp";
     private static final String PAGE_ERROR = "/articleError.jsp";
+    //кожен раз діставити щось з контексту і сетити буде заморочно
+    //спрінг це має зробити замість тебе
     private ArticleService articleService = MyConfig
             .context
             .getBean(ArticleServiceImpl.class);

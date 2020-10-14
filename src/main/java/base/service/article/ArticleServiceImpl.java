@@ -14,6 +14,11 @@ import java.util.Set;
 
 @Component
 public class ArticleServiceImpl implements ArticleService {
+    //кожен раз діставити щось з контексту і сетити буде заморочно
+    //спрінг це має зробити замість тебе
+    //ось так ти вказуєш спрінгу, що він має знайти в свму контексті ArticleRepository і засетити сюди
+    //@Autowired
+    //private final ArticleRepository articleRepository;
     private final ArticleRepository articleRepository = MyConfig
         .context
         .getBean(LocalArticleRepository.class);

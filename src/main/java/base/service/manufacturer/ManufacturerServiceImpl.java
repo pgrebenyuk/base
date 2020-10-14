@@ -15,6 +15,8 @@ import java.util.Set;
 
 @Component
 public class ManufacturerServiceImpl implements ManufacturerService {
+    //кожен раз діставити щось з контексту і сетити буде заморочно
+    //спрінг це має зробити замість тебе
     private final ManufacturerRepository manufacturerRepository = MyConfig
             .context
             .getBean(LocalManufacturerRepository.class);
