@@ -19,4 +19,12 @@ public class Manufacturer {
     public String getName() {
         return name;
     }
+
+    public Manufacturer() {
+    }
+
+    public Manufacturer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

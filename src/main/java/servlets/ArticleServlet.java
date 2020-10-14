@@ -1,6 +1,7 @@
 package servlets;
 
 import base.entity.Article;
+import base.repository.LocalArticleRepository;
 import base.repository.MySqlArticleRepository;
 import base.service.ArticleService;
 import base.service.ArticleServiceImpl;
@@ -11,11 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Optional;
 
 @WebServlet("/article")
 public class ArticleServlet extends HttpServlet {
-    private final String PAGE = "/article.jsp";
-    private ArticleService articleService = new ArticleServiceImpl(new MySqlArticleRepository());
+    private static final String PAGE = "/article.jsp";
+    private static final String PAGE_ERROR = "/articleError.jsp";
+    private ArticleService articleService = new ArticleServiceImpl(new LocalArticleRepository());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -23,14 +26,12 @@ public class ArticleServlet extends HttpServlet {
 
         String idString = req.getParameter("id");
         int id = Integer.parseInt(idString);
-        try {
-            Article article = articleService.getArticle(id).get();
-            req.setAttribute("article", article);
+        Optional<Article> article = articleService.getArticle(id);
+        if (articleService.getArticle(id).isPresent()) {
+            req.setAttribute("article", article.get());
             getServletContext().getRequestDispatcher(PAGE).forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            getServletContext().getRequestDispatcher(PAGE_ERROR).forward(req, resp);
         }
 
     }

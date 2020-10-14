@@ -2,15 +2,13 @@ package base.service;
 
 import base.entity.Article;
 import base.repository.ArticleRepository;
-import base.repository.MySqlArticleRepository;
-
 import java.util.Optional;
 import java.util.Set;
 
 public class ArticleServiceImpl implements ArticleService {
     private final ArticleRepository articleRepository;
 
-    public ArticleServiceImpl(MySqlArticleRepository articleRepository) {
+    public ArticleServiceImpl(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;
     }
 

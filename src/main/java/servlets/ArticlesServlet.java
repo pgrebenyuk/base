@@ -1,6 +1,7 @@
 package servlets;
 
 import base.entity.Article;
+import base.repository.LocalArticleRepository;
 import base.repository.MySqlArticleRepository;
 import base.service.ArticleService;
 import base.service.ArticleServiceImpl;
@@ -15,8 +16,8 @@ import java.util.Set;
 
 @WebServlet("/articles")
 public class ArticlesServlet extends HttpServlet {
-    private final String PAGE = "/articles.jsp";
-    private ArticleService articleService = new ArticleServiceImpl(new MySqlArticleRepository());
+    private static final String PAGE = "/articles.jsp";
+    private ArticleService articleService = new ArticleServiceImpl(new LocalArticleRepository());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

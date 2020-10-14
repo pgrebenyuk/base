@@ -22,7 +22,7 @@ public class LocalArticleRepository implements ArticleRepository {
 
     @Override
     public Optional<Article> articleId(int idArtical) {
-        return articles.stream().filter(id -> Objects.equals(id, idArtical)).findFirst();
+        return articles.stream().filter(article -> article.getId() == idArtical).findFirst();
     }
 
     @Override

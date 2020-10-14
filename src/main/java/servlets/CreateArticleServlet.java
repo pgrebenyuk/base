@@ -1,5 +1,7 @@
 package servlets;
 
+import base.repository.LocalArticleRepository;
+import base.repository.LocalManufacturerRepository;
 import base.repository.MySqlArticleRepository;
 import base.repository.MySqlManufacturerRepository;
 import base.service.ArticleService;
@@ -16,9 +18,9 @@ import java.io.IOException;
 
 @WebServlet("/create-article")
 public class CreateArticleServlet extends HttpServlet {
-    private final String PAGE = "/newArticleCreated.jsp";
-    private  ArticleService articleService = new ArticleServiceImpl(new MySqlArticleRepository());
-    private ManufacturerService manufacturerService = new ManufacturerServiceImpl(new MySqlManufacturerRepository());
+    private static final String PAGE = "/newArticleCreated.jsp";
+    private  ArticleService articleService = new ArticleServiceImpl(new LocalArticleRepository());
+    private ManufacturerService manufacturerService = new ManufacturerServiceImpl(new LocalManufacturerRepository());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
