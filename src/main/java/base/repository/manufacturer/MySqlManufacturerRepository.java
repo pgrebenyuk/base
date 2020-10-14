@@ -1,8 +1,9 @@
-package base.repository;
+package base.repository.manufacturer;
 
 import base.DataBaseConnectionManager;
 import base.entity.Manufacturer;
 import base.repository.manufacturer.ManufacturerRepository;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,6 +12,7 @@ import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
+@Component
 public class MySqlManufacturerRepository implements ManufacturerRepository {
     private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
     private static final String COLUMN_MANUFACTURER = "manufacturer";

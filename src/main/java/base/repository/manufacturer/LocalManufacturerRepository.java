@@ -1,11 +1,13 @@
 package base.repository.manufacturer;
 
 import base.entity.Manufacturer;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+@Component
 public class LocalManufacturerRepository implements ManufacturerRepository {
     private Set<Manufacturer> manufacturers;
 

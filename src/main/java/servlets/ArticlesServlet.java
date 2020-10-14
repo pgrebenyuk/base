@@ -1,7 +1,7 @@
 package servlets;
 
+import base.configs.MyConfig;
 import base.entity.Article;
-import base.repository.article.LocalArticleRepository;
 import base.service.article.ArticleService;
 import base.service.article.ArticleServiceImpl;
 
@@ -17,7 +17,9 @@ import java.util.Set;
 public class ArticlesServlet extends HttpServlet {
     private static final String PAGE = "/articles.jsp";
     private static final String PAGE_ERROR = "/articleError.jsp";
-    private ArticleService articleService = new ArticleServiceImpl(new LocalArticleRepository());
+    private ArticleService articleService = MyConfig
+            .context
+            .getBean(ArticleServiceImpl.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

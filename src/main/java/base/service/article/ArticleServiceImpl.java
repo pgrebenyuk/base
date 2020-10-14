@@ -1,15 +1,24 @@
 package base.service.article;
 
+import base.configs.MyConfig;
 import base.entity.Article;
 import base.repository.article.ArticleRepository;
+import base.repository.article.LocalArticleRepository;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import java.util.Optional;
 import java.util.Set;
 
+@Component
 public class ArticleServiceImpl implements ArticleService {
-    private final ArticleRepository articleRepository;
+    private final ArticleRepository articleRepository = MyConfig
+        .context
+        .getBean(LocalArticleRepository.class);
 
-    public ArticleServiceImpl(ArticleRepository articleRepository) {
-        this.articleRepository = articleRepository;
+    public ArticleServiceImpl() {
     }
 
     @Override

@@ -1,5 +1,6 @@
 package servlets;
 
+import base.configs.MyConfig;
 import base.repository.article.LocalArticleRepository;
 import base.repository.manufacturer.LocalManufacturerRepository;
 import base.service.article.ArticleService;
@@ -18,8 +19,12 @@ import java.io.IOException;
 public class CreateArticleServlet extends HttpServlet {
     private static final String PAGE = "/newArticleCreated.jsp";
     private static final String PAGE_ERROR = "/articleError.jsp";
-    private  ArticleService articleService = new ArticleServiceImpl(new LocalArticleRepository());
-    private ManufacturerService manufacturerService = new ManufacturerServiceImpl(new LocalManufacturerRepository());
+    private ArticleService articleService = MyConfig
+            .context
+            .getBean(ArticleServiceImpl.class);
+    private ManufacturerService manufacturerService = MyConfig
+            .context
+            .getBean(ManufacturerServiceImpl.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
