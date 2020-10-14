@@ -4,6 +4,8 @@ import base.configs.MyConfig;
 import base.entity.Article;
 import base.repository.article.ArticleRepository;
 import base.repository.article.LocalArticleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -14,14 +16,9 @@ import java.util.Set;
 
 @Component
 public class ArticleServiceImpl implements ArticleService {
-    //кожен раз діставити щось з контексту і сетити буде заморочно
-    //спрінг це має зробити замість тебе
-    //ось так ти вказуєш спрінгу, що він має знайти в свму контексті ArticleRepository і засетити сюди
-    //@Autowired
-    //private final ArticleRepository articleRepository;
-    private final ArticleRepository articleRepository = MyConfig
-        .context
-        .getBean(LocalArticleRepository.class);
+    @Autowired
+    @Qualifier("localArticleRepository")
+    private ArticleRepository articleRepository;
 
     public ArticleServiceImpl() {
     }

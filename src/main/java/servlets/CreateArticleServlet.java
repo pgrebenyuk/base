@@ -19,16 +19,8 @@ import java.io.IOException;
 public class CreateArticleServlet extends HttpServlet {
     private static final String PAGE = "/newArticleCreated.jsp";
     private static final String PAGE_ERROR = "/articleError.jsp";
-    //кожен раз діставити щось з контексту і сетити буде заморочно
-    //спрінг це має зробити замість тебе
-    private ArticleService articleService = MyConfig
-            .context
-            .getBean(ArticleServiceImpl.class);
-    //кожен раз діставити щось з контексту і сетити буде заморочно
-    //спрінг це має зробити замість тебе
-    private ManufacturerService manufacturerService = MyConfig
-            .context
-            .getBean(ManufacturerServiceImpl.class);
+    private ArticleService articleService;
+    private ManufacturerService manufacturerService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

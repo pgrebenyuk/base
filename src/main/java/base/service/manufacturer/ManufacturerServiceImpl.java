@@ -6,6 +6,8 @@ import base.repository.article.ArticleRepository;
 import base.repository.article.LocalArticleRepository;
 import base.repository.manufacturer.LocalManufacturerRepository;
 import base.repository.manufacturer.ManufacturerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -15,11 +17,9 @@ import java.util.Set;
 
 @Component
 public class ManufacturerServiceImpl implements ManufacturerService {
-    //кожен раз діставити щось з контексту і сетити буде заморочно
-    //спрінг це має зробити замість тебе
-    private final ManufacturerRepository manufacturerRepository = MyConfig
-            .context
-            .getBean(LocalManufacturerRepository.class);
+    @Autowired
+    @Qualifier("localManufacturerRepository")
+    private ManufacturerRepository manufacturerRepository;
 
     public ManufacturerServiceImpl() {
     }

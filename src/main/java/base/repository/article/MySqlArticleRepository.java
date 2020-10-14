@@ -3,6 +3,7 @@ package base.repository.article;
 import base.DataBaseConnectionManager;
 import base.configs.MyConfig;
 import base.entity.Article;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +13,6 @@ import java.sql.*;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
-
 @Component
 public class MySqlArticleRepository implements ArticleRepository {
     private static final String COLUMN_ID_ARTICLE = "id_article";
@@ -35,7 +35,7 @@ public class MySqlArticleRepository implements ArticleRepository {
     }
 
     private Article extractUserFromResultSet(ResultSet rs) throws SQLException {
-        Article article = MyConfig.context.getBean(Article.class);
+        Article article = new Article();
 
         article.setId(rs.getInt(COLUMN_ID_ARTICLE));
         article.setName(rs.getString(COLUMN_ARTICLE));
