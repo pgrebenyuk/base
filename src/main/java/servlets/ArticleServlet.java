@@ -2,7 +2,6 @@ package servlets;
 
 import base.entity.Article;
 import base.repository.LocalArticleRepository;
-import base.repository.MySqlArticleRepository;
 import base.service.ArticleService;
 import base.service.ArticleServiceImpl;
 
@@ -23,16 +22,18 @@ public class ArticleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
-        String idString = req.getParameter("id");
-        int id = Integer.parseInt(idString);
-        Optional<Article> article = articleService.getArticle(id);
-        if (articleService.getArticle(id).isPresent()) {
-            req.setAttribute("article", article.get());
-            getServletContext().getRequestDispatcher(PAGE).forward(req, resp);
-        } else {
+        try {
+            String idString = req.getParameter("id");
+            int id = Integer.parseInt(idString);
+            Optional<Article> article = articleService.getArticle(id);
+            if (articleService.getArticle(id).isPresent()) {
+                req.setAttribute("article", article.get());
+                getServletContext().getRequestDispatcher(PAGE).forward(req, resp);
+            } else {
+                getServletContext().getRequestDispatcher(PAGE_ERROR).forward(req, resp);
+            }
+        } catch (Exception e) {
             getServletContext().getRequestDispatcher(PAGE_ERROR).forward(req, resp);
         }
-
     }
 }
