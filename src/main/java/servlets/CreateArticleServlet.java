@@ -17,7 +17,8 @@ public class CreateArticleServlet extends HttpServlet {
     private static final String PAGE_ERROR = "/articleError.jsp";
 
     @Autowired
-    private ArticleService articleService; //відступ
+    private ArticleService articleService;
+
     @Autowired
     private ManufacturerService manufacturerService;
 
