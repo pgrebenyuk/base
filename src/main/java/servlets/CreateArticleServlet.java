@@ -14,7 +14,7 @@ import java.io.IOException;
 @Component
 public class CreateArticleServlet extends HttpServlet {
     private static final String PAGE = "/newArticleCreated.jsp";
-    private static final String PAGE_ERROR = "/articleError.jsp";
+    private static final String PAGE_ERROR = "/articleError.jsp"; //відступ
     @Autowired
     private ArticleService articleService;
     @Autowired

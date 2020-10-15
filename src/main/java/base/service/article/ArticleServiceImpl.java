@@ -15,6 +15,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Qualifier("mySqlArticleRepository")
     private ArticleRepository articleRepository;
 
+    //можна видалити, конструктор без параметрів є по дефолту
     public ArticleServiceImpl() {
     }
 

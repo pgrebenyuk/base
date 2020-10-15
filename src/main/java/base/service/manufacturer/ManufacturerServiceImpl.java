@@ -15,6 +15,7 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     @Qualifier("mySqlManufacturerRepository")
     private ManufacturerRepository manufacturerRepository;
 
+    //можна видалити, конструктор без параметрів є по дефолту
     public ManufacturerServiceImpl() {
     }
 

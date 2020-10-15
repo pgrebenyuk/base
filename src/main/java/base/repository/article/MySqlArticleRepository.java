@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.sql.*;
 import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
+import java.util.Set; //між імпортами і класом відступ
 @Component
 public class MySqlArticleRepository implements ArticleRepository {
     private static final String COLUMN_ID_ARTICLE = "id_article";

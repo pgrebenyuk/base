@@ -15,7 +15,7 @@ import java.util.Set;
 public class MySqlManufacturerRepository implements ManufacturerRepository {
     private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
     private static final String COLUMN_MANUFACTURER = "manufacturer";
-    private static final String SQL_SELECT_ALL = "SELECT * FROM manufacturers";
+    private static final String SQL_SELECT_ALL = "SELECT * FROM manufacturers";//зазвичай якщо поле з анотацією, то перед ним відступ
     @Autowired
     private Connection connection;
 
