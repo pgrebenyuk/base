@@ -1,8 +1,7 @@
 package base.repository.manufacturer;
 
-import base.DataBaseConnectionManager;
 import base.entity.Manufacturer;
-import base.repository.manufacturer.ManufacturerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -17,15 +16,8 @@ public class MySqlManufacturerRepository implements ManufacturerRepository {
     private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
     private static final String COLUMN_MANUFACTURER = "manufacturer";
     private static final String SQL_SELECT_ALL = "SELECT * FROM manufacturers";
+    @Autowired
     private Connection connection;
-
-    public MySqlManufacturerRepository() {
-        try {
-            this.connection = DataBaseConnectionManager.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     private Manufacturer extractUserFromResultSet(ResultSet rs) throws SQLException {
         Manufacturer manufacturer = new Manufacturer();

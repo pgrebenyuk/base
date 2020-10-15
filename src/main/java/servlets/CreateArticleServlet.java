@@ -1,25 +1,23 @@
 package servlets;
 
-import base.configs.MyConfig;
-import base.repository.article.LocalArticleRepository;
-import base.repository.manufacturer.LocalManufacturerRepository;
 import base.service.article.ArticleService;
-import base.service.article.ArticleServiceImpl;
 import base.service.manufacturer.ManufacturerService;
-import base.service.manufacturer.ManufacturerServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/create-article")
+@Component
 public class CreateArticleServlet extends HttpServlet {
     private static final String PAGE = "/newArticleCreated.jsp";
     private static final String PAGE_ERROR = "/articleError.jsp";
+    @Autowired
     private ArticleService articleService;
+    @Autowired
     private ManufacturerService manufacturerService;
 
     @Override

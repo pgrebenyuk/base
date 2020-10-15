@@ -1,7 +1,6 @@
 package base.repository.article;
 
 import base.entity.Article;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -24,7 +23,6 @@ public class LocalArticleRepository implements ArticleRepository {
     }
 
     @Override
-    //idea підсвічує
     public Optional<Article> articleId(int idArtical) {
         return articles.stream()
                 .filter(article -> article.getId() == idArtical)

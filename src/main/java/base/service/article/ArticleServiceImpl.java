@@ -1,15 +1,9 @@
 package base.service.article;
 
-//поудаляй
-import base.configs.MyConfig;
 import base.entity.Article;
 import base.repository.article.ArticleRepository;
-import base.repository.article.LocalArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -18,7 +12,7 @@ import java.util.Set;
 @Component
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
-    @Qualifier("localArticleRepository")
+    @Qualifier("mySqlArticleRepository")
     private ArticleRepository articleRepository;
 
     public ArticleServiceImpl() {

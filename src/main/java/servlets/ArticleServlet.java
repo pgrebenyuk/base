@@ -1,25 +1,22 @@
 package servlets;
 
-import base.configs.MyConfig;
 import base.entity.Article;
-import base.repository.article.LocalArticleRepository;
 import base.service.article.ArticleService;
-import base.service.article.ArticleServiceImpl;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-@WebServlet("/article")
+@Component
 public class ArticleServlet extends HttpServlet {
     private static final String PAGE = "/article.jsp";
     private static final String PAGE_ERROR = "/articleError.jsp";
+    @Autowired
     private ArticleService articleService;
 
     @Override
