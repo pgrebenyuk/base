@@ -13,7 +13,7 @@ import java.util.Set;
 public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Autowired
-    @Qualifier("mySqlManufacturerRepository")
+    @Qualifier("localManufacturerRepository")
     private ManufacturerRepository manufacturerRepository;
 
     @Override
