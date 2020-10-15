@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServlet;
 
+//в ArticleServlet подібні зауваження
 @Controller
 @RequestMapping("/created-article")
 public class CreateArticleServlet extends HttpServlet {

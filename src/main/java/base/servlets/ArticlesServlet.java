@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Set;
 
+//в ArticleServlet подібні зауваження
 @Controller
 @RequestMapping("/articles")
 public class ArticlesServlet {

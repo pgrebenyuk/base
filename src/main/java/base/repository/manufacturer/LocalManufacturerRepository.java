@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+//в спрінг є спеціальні анотації для репозиторія @Repository
+//по суті це то й же компонент, але просто позначає репозиторій
 @Component
 public class LocalManufacturerRepository implements ManufacturerRepository {
     private Set<Manufacturer> manufacturers;

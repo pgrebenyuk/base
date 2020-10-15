@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+//в спрінг є спеціальні анотації для репозиторія @Repository
+//по суті це то й же компонент, але просто позначає репозиторій
 @Component
 public class LocalArticleRepository implements ArticleRepository {
     private Set<Article> articles;

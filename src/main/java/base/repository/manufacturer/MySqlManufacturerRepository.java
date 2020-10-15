@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
+//в спрінг є спеціальні анотації для репозиторія @Repository
+//по суті це то й же компонент, але просто позначає репозиторій
 @Component
 public class MySqlManufacturerRepository implements ManufacturerRepository {
     private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";

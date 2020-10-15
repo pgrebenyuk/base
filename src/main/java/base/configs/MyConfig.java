@@ -41,6 +41,8 @@ public class MyConfig implements WebMvcConfigurer {
         }
         return DriverManager.getConnection(connectionString, prop);
     }
+
+    //ця штука поки не працює чогось і не показує index.jsp, треба розібратись
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");

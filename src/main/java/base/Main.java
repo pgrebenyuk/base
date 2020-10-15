@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 
+//цей клас вже лишній
 @Component
 public class Main {
     @Autowired
