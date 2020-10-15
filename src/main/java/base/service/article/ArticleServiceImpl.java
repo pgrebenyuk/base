@@ -11,13 +11,10 @@ import java.util.Set;
 
 @Component
 public class ArticleServiceImpl implements ArticleService {
+
     @Autowired
     @Qualifier("mySqlArticleRepository")
     private ArticleRepository articleRepository;
-
-    //можна видалити, конструктор без параметрів є по дефолту
-    public ArticleServiceImpl() {
-    }
 
     @Override
     public int createArticle(String name, double price, int idManufactured) {

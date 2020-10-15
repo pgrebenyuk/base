@@ -11,13 +11,10 @@ import java.util.Set;
 
 @Component
 public class ManufacturerServiceImpl implements ManufacturerService {
+
     @Autowired
     @Qualifier("mySqlManufacturerRepository")
     private ManufacturerRepository manufacturerRepository;
-
-    //можна видалити, конструктор без параметрів є по дефолту
-    public ManufacturerServiceImpl() {
-    }
 
     @Override
     public int getRandomManufacturersId() {

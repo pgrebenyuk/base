@@ -1,10 +1,12 @@
-package base.repository.article; //між пакетом і імпортами відступ
+package base.repository.article;
+
 import base.entity.Article;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 import java.util.Set;
 
-//ти в ManufacturerRepository додава анотацію компонент, то вже і сюди додай
+@Component
 public interface ArticleRepository {
     Set<Article> getAll();
     Optional<Article> articleId(int id);

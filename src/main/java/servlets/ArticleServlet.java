@@ -15,7 +15,8 @@ import java.util.Optional;
 @Component
 public class ArticleServlet extends HttpServlet {
     private static final String PAGE = "/article.jsp";
-    private static final String PAGE_ERROR = "/articleError.jsp"; //відступ
+    private static final String PAGE_ERROR = "/articleError.jsp";
+
     @Autowired
     private ArticleService articleService;
 

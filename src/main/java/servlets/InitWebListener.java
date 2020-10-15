@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebListener;
 
 @WebListener
 public class InitWebListener implements ServletContextListener {
+
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         ApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
