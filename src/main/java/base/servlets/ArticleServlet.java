@@ -19,15 +19,10 @@ public class ArticleServlet {
 
     @GetMapping("/article")
     public String doServlet(@RequestParam("id") int id, ModelMap model) {
-        try {
-            Optional<Article> article = articleService.getArticle(id);
-            if (article.isPresent()) {
-                model.addAttribute("article", article.get());
-            } else {
-                return PAGE_ERROR;
-            }
-            //не розумію, яку помилку ти ловиш тепер, параметри 100 відсотків коректні будуть
-        } catch (Exception e) {
+        Optional<Article> article = articleService.getArticle(id);
+        if (article.isPresent()) {
+            model.addAttribute("article", article.get());
+        } else {
             return PAGE_ERROR;
         }
         return PAGE;
