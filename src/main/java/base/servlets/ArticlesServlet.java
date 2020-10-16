@@ -5,26 +5,26 @@ import base.service.article.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Set;
 
-//в ArticleServlet подібні зауваження
 @Controller
-@RequestMapping("/articles")
 public class ArticlesServlet {
+    private static final String PAGE = "articles";
+    private static final String PAGE_ERROR = "articleError";
 
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public void doServlet(ModelMap model) {
+    @GetMapping("/articles")
+    public String doServlet(ModelMap model) {
         try {
             Set<Article> articlesAll = articleService.getAll();
             model.addAttribute("articlesAll", articlesAll);
         } catch (Exception e) {
-            int asd = 0;
+            return PAGE_ERROR;
         }
+        return PAGE;
     }
 }

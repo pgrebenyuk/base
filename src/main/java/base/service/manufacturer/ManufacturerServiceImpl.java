@@ -4,14 +4,12 @@ import base.entity.Manufacturer;
 import base.repository.manufacturer.ManufacturerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Random;
 import java.util.Set;
 
-//в спрінг є спеціальні анотації для сервіса @Service
-//по суті це то й же компонент, але просто позначає сервіс
-@Component
+@Service
 public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Autowired

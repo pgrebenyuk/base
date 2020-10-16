@@ -2,16 +2,14 @@ package base.repository.article;
 
 import base.entity.Article;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-//в спрінг є спеціальні анотації для репозиторія @Repository
-//по суті це то й же компонент, але просто позначає репозиторій
-@Component
+@Repository
 public class MySqlArticleRepository implements ArticleRepository {
     private static final String COLUMN_ID_ARTICLE = "id_article";
     private static final String COLUMN_ARTICLE = "article";

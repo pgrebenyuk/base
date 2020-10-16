@@ -32,6 +32,7 @@ public class MyConfig implements WebMvcConfigurer {
         prop.setProperty("serverTimezone", "Europe/Kiev");
         prop.setProperty("user", DB_USER);
         prop.setProperty("password", DB_PASS);
+        prop.setProperty("allowPublicKeyRetrieval", "true");
         String connectionString = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT + "/" + DB_NAME;
 
         try {
@@ -42,10 +43,6 @@ public class MyConfig implements WebMvcConfigurer {
         return DriverManager.getConnection(connectionString, prop);
     }
 
-    //оновлення!!! ця штука таки працює в тебе, просто треба в індекс джсп додати хоч якийсь текст)
-    //грубо кажучи, ми в цьому класі імплементуємо WebMvcConfigurer інтерфейс спеціально, щоб заоверайдити цей метод
-    //якщо не заморачуватись цим, то можна спокійно і не імплементувати його, можеш протестити
-    //ця штука поки не працює чогось і не показує index.jsp, треба розібратись
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");

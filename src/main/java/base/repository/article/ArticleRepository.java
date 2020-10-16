@@ -1,14 +1,12 @@
 package base.repository.article;
 
 import base.entity.Article;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.Set;
 
-//в спрінг є спеціальні анотації для репозиторія @Repository
-//по суті це то й же компонент, але просто позначає репозиторій
-@Component
+@Repository
 public interface ArticleRepository {
     Set<Article> getAll();
     Optional<Article> articleId(int id);

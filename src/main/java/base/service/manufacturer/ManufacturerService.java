@@ -1,10 +1,8 @@
 package base.service.manufacturer;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-//в спрінг є спеціальні анотації для сервіса @Service
-//по суті це то й же компонент, але просто позначає сервіс
-@Component
+@Service
 public interface ManufacturerService {
     int getRandomManufacturersId();
 }

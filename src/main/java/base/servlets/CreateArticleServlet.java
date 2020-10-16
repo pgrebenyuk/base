@@ -5,15 +5,15 @@ import base.service.manufacturer.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServlet;
 
-//в ArticleServlet подібні зауваження
 @Controller
-@RequestMapping("/created-article")
 public class CreateArticleServlet extends HttpServlet {
+    private static final String PAGE = "newArticleCreated";
+    private static final String PAGE_ERROR = "articleError";
 
     @Autowired
     private ArticleService articleService;
@@ -21,16 +21,17 @@ public class CreateArticleServlet extends HttpServlet {
     @Autowired
     private ManufacturerService manufacturerService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public void doServlet(ModelMap model) {
+    @GetMapping("/create-article")
+    public String doServlet(@RequestParam("name") String name,
+                            @RequestParam("price") double price,
+                            ModelMap model) {
         try {
-            String name = (String) model.getAttribute("name");
-            double price = (Double) model.getAttribute("price");
             int idManufactured = manufacturerService.getRandomManufacturersId();
             int id = articleService.createArticle(name, price, idManufactured);
             model.addAttribute("id", id);
         } catch (Exception e) {
-            int asd = 0;
+            return PAGE_ERROR;
         }
+        return PAGE;
     }
 }

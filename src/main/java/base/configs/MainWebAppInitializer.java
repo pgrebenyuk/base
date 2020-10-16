@@ -14,6 +14,13 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(final ServletContext sc) throws ServletException {
+        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+        ctx.register(MyConfig.class);
+        ctx.setServletContext(sc);
+
+        ServletRegistration.Dynamic servlet = sc.addServlet("dispatcher", new DispatcherServlet(ctx));
+        servlet.setLoadOnStartup(1);
+        servlet.addMapping("/");
 
         /*
         заміни весь свій код цим
@@ -26,7 +33,7 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic servlet = sc.addServlet("dispatcher", new DispatcherServlet(ctx));
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/");
-         */
+
         AnnotationConfigWebApplicationContext root =
                 new AnnotationConfigWebApplicationContext();
 
@@ -36,6 +43,6 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic appServlet =
                 sc.addServlet("mvc", new DispatcherServlet(new GenericWebApplicationContext()));
         appServlet.setLoadOnStartup(1);
-        appServlet.addMapping("/");
+        appServlet.addMapping("/");*/
     }
 }

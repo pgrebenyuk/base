@@ -2,7 +2,7 @@ package base.repository.manufacturer;
 
 import base.entity.Manufacturer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,9 +11,7 @@ import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
-//в спрінг є спеціальні анотації для репозиторія @Repository
-//по суті це то й же компонент, але просто позначає репозиторій
-@Component
+@Repository
 public class MySqlManufacturerRepository implements ManufacturerRepository {
     private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
     private static final String COLUMN_MANUFACTURER = "manufacturer";

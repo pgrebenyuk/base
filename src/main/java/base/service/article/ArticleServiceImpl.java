@@ -4,14 +4,12 @@ import base.entity.Article;
 import base.repository.article.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
 
-//в спрінг є спеціальні анотації для сервіса @Service
-//по суті це то й же компонент, але просто позначає сервіс
-@Component
+@Service
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired

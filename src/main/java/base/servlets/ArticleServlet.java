@@ -5,38 +5,30 @@ import base.service.article.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-//можна прям так, буде швидше
-//@Controller("/article")
-//тоді @RequestMapping не треба
 @Controller
-@RequestMapping("/article")
 public class ArticleServlet {
+    private static final String PAGE = "article";
+    private static final String PAGE_ERROR = "articleError";
 
     @Autowired
     private ArticleService articleService;
 
-    //можна так @GetMapping
-    @RequestMapping(method = RequestMethod.GET)
-    public void doServlet(ModelMap model) {
-        //тут метод не дописаний
+    @GetMapping("/article")
+    public String doServlet(@RequestParam("id") int id, ModelMap model) {
         try {
-            int id = (Integer) model.getAttribute("id");
             Optional<Article> article = articleService.getArticle(id);
-            if (articleService.getArticle(id).isPresent()) {
+            if (article.isPresent()) {
                 model.addAttribute("article", article.get());
             } else {
-
+                return PAGE_ERROR;
             }
         } catch (Exception e) {
-            int asd = 0;
+            return PAGE_ERROR;
         }
-
+        return PAGE;
     }
-
 }

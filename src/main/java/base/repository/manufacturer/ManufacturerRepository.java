@@ -1,13 +1,11 @@
 package base.repository.manufacturer;
 
 import base.entity.Manufacturer;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
-//в спрінг є спеціальні анотації для репозиторія @Repository
-//по суті це то й же компонент, але просто позначає репозиторій
-@Component
+@Repository
 public interface ManufacturerRepository {
     Set<Manufacturer> getAll();
 }
