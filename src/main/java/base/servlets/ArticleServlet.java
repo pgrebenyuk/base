@@ -26,6 +26,7 @@ public class ArticleServlet {
             } else {
                 return PAGE_ERROR;
             }
+            //не розумію, яку помилку ти ловиш тепер, параметри 100 відсотків коректні будуть
         } catch (Exception e) {
             return PAGE_ERROR;
         }

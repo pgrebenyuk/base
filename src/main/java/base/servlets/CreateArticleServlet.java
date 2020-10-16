@@ -29,6 +29,7 @@ public class CreateArticleServlet extends HttpServlet {
             int idManufactured = manufacturerService.getRandomManufacturersId();
             int id = articleService.createArticle(name, price, idManufactured);
             model.addAttribute("id", id);
+            //що ловиш?
         } catch (Exception e) {
             return PAGE_ERROR;
         }

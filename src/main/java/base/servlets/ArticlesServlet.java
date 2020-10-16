@@ -22,6 +22,7 @@ public class ArticlesServlet {
         try {
             Set<Article> articlesAll = articleService.getAll();
             model.addAttribute("articlesAll", articlesAll);
+            //що ловиш?
         } catch (Exception e) {
             return PAGE_ERROR;
         }
