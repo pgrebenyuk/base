@@ -25,14 +25,9 @@ public class CreateArticleServlet extends HttpServlet {
     public String doServlet(@RequestParam("name") String name,
                             @RequestParam("price") double price,
                             ModelMap model) {
-        try {
-            int idManufactured = manufacturerService.getRandomManufacturersId();
-            int id = articleService.createArticle(name, price, idManufactured);
-            model.addAttribute("id", id);
-            //що ловиш?
-        } catch (Exception e) {
-            return PAGE_ERROR;
-        }
+        int idManufactured = manufacturerService.getRandomManufacturersId();
+        int id = articleService.createArticle(name, price, idManufactured);
+        model.addAttribute("id", id);
         return PAGE;
     }
 }
