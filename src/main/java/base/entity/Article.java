@@ -1,7 +1,9 @@
 package base.entity;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
+@XmlRootElement
 public class Article {
 
     private int id;
