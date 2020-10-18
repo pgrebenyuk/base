@@ -2,14 +2,14 @@ package base.repository.article;
 
 import base.entity.Article;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.sql.*;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-@Repository
+@ComponentScan
 public class MySqlArticleRepository implements ArticleRepository {
     private static final String COLUMN_ID_ARTICLE = "id_article";
     private static final String COLUMN_ARTICLE = "article";

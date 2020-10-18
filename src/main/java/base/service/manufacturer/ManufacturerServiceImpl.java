@@ -4,12 +4,12 @@ import base.entity.Manufacturer;
 import base.repository.manufacturer.ManufacturerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Random;
 import java.util.Set;
 
-@Service
+@ComponentScan
 public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Autowired

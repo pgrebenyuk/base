@@ -4,12 +4,12 @@ import base.entity.Article;
 import base.repository.article.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Optional;
 import java.util.Set;
 
-@Service
+@ComponentScan
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired

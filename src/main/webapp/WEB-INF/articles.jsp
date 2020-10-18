@@ -7,11 +7,11 @@
 </head>
 
 <body>
-    <c:forEach var="article" items="${articlesAll}">
-        <div>id: ${article.id}</div>
-        <div>name: ${article.name}</div>
-        <div>price: ${article.price}</div>
-        <div>manufacturerId: ${article.manufacturerId}</div>
-    </c:forEach>
+<c:forEach var="article" items="${articlesAll}">
+    <div>id: ${article.id}</div>
+    <div>name: ${article.name}</div>
+    <div>price: ${article.price}</div>
+    <div>manufacturerId: ${article.manufacturerId}</div>
+</c:forEach>
 </body>
 </html>

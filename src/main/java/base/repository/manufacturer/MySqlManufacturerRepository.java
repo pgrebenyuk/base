@@ -2,7 +2,7 @@ package base.repository.manufacturer;
 
 import base.entity.Manufacturer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
-@Repository
+@ComponentScan
 public class MySqlManufacturerRepository implements ManufacturerRepository {
     private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
     private static final String COLUMN_MANUFACTURER = "manufacturer";

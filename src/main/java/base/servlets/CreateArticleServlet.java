@@ -8,17 +8,15 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServlet;
-
 @Controller
-public class CreateArticleServlet extends HttpServlet {
+public class CreateArticleServlet {
     private static final String PAGE = "newArticleCreated";
 
     @Autowired
     private ArticleService articleService;
 
     @Autowired
-    private ManufacturerService manufacturerService;
+    private static ManufacturerService manufacturerService;
 
     @GetMapping("/create-article")
     public String doServlet(@RequestParam("name") String name,

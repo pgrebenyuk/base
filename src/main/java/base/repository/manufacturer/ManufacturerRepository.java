@@ -1,11 +1,11 @@
 package base.repository.manufacturer;
 
 import base.entity.Manufacturer;
-import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Set;
 
-@Repository
+@ComponentScan
 public interface ManufacturerRepository {
     Set<Manufacturer> getAll();
 }

@@ -1,8 +1,8 @@
 package base.service.manufacturer;
 
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.ComponentScan;
 
-@Service
+@ComponentScan
 public interface ManufacturerService {
     int getRandomManufacturersId();
 }

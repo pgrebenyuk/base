@@ -18,8 +18,8 @@ public class ArticleServlet {
     private ArticleService articleService;
 
     @GetMapping("/article")
-    public String doServlet(@RequestParam("id") int id, ModelMap model) {
-        Optional<Article> article = articleService.getArticle(id);
+    public String doServlet(@RequestParam("id") Integer id, ModelMap model) {
+        Optional<Article> article = articleService.getArticle((id == null) ? 0 : id);
         if (article.isPresent()) {
             model.addAttribute("article", article.get());
         } else {
