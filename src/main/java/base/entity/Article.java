@@ -1,5 +1,7 @@
 package base.entity;
 
+import java.util.Objects;
+
 public class Article {
 
     private int id;
@@ -51,8 +53,9 @@ public class Article {
 
     @Override
     public String toString() {
-        String string = "id=" + id + ": article=" + name + ": price="
-                + price + ": idManufacturer=" + manufacturerId;
-        return string;
+        return "id=" + id + ": article=" + name
+                + ": price=" + price
+                + ": idManufacturer=" + manufacturerId;
     }
+
 }

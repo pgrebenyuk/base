@@ -13,7 +13,7 @@ import java.util.Set;
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
-    @Qualifier("mySqlArticleRepository")
+    @Qualifier("localArticleRepository")
     private ArticleRepository articleRepository;
 
     @Override
