@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServlet;
 @Controller
 public class CreateArticleServlet extends HttpServlet {
     private static final String PAGE = "newArticleCreated";
-    //не використовується
-    private static final String PAGE_ERROR = "articleError";
 
     @Autowired
     private ArticleService articleService;
