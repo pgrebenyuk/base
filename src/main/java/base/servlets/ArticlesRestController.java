@@ -19,8 +19,4 @@ public class ArticlesRestController {
         return articleService.getAll();
     }
 
-//    @GetMapping(value = "/rest/articles", produces = "application/json")
-//    public Set<Article> doRest() {
-//        return articleService.getAll();
-//    }
 }
