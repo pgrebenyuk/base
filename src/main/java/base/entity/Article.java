@@ -1,9 +1,5 @@
 package base.entity;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-//забирай, ми тільки джсон юзаєм
-@XmlRootElement
 public class Article {
 
     private int id;
