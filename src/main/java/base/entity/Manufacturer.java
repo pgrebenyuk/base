@@ -2,6 +2,7 @@ package base.entity;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+//не треба
 @XmlRootElement
 public class Manufacturer {
     private int id;
