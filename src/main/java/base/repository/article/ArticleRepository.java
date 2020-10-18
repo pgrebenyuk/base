@@ -2,11 +2,12 @@ package base.repository.article;
 
 import base.entity.Article;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
 
-@ComponentScan
+@Service
 public interface ArticleRepository {
     Set<Article> getAll();
 

@@ -2,10 +2,11 @@ package base.repository.article;
 
 import base.entity.Article;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-@ComponentScan
+@Service
 public class LocalArticleRepository implements ArticleRepository {
     private Set<Article> articles;
 

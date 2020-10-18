@@ -1,12 +1,14 @@
 package base.service.article;
 
 import base.entity.Article;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
 
-@ComponentScan
+@Service
 public interface ArticleService {
     int createArticle(String name, double price, int idManufactured);
     Optional<Article> getArticle(int id);
