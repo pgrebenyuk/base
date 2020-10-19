@@ -16,7 +16,7 @@ public class CreateArticleServlet {
     private ArticleService articleService;
 
     @Autowired
-    private static ManufacturerService manufacturerService;
+    private ManufacturerService manufacturerService;
 
     @GetMapping("/create-article")
     public String doServlet(@RequestParam("name") String name,
