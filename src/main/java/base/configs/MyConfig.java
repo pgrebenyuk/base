@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+//поміняй на Configuration
 @Service
 public class MyConfig {
 
@@ -23,6 +24,9 @@ public class MyConfig {
 
     @Value("${spring.datasource.password}")
     private String password;
+
+    //а чого ти тут присвоюєш, а не тягнеш з пропертів?
+    //якщо я стираю фінал, то ідея не свариться
 //? тут ідея захотіла фінал, а в інших полях ні
     @Value("${spring.datasource.dbName}")
     private final String dbName = "base1";
