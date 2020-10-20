@@ -2,7 +2,7 @@ package base.configs;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -12,8 +12,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-//поміняй на Configuration
-@Service
+@Configuration
 public class MyConfig {
 
     @Value("${spring.datasource.dbPort}")
@@ -25,11 +24,8 @@ public class MyConfig {
     @Value("${spring.datasource.password}")
     private String password;
 
-    //а чого ти тут присвоюєш, а не тягнеш з пропертів?
-    //якщо я стираю фінал, то ідея не свариться
-//? тут ідея захотіла фінал, а в інших полях ні
     @Value("${spring.datasource.dbName}")
-    private final String dbName = "base1";
+    private String dbName;
 
     @Value("${spring.datasource.dbHost}")
     private String dbHost;
