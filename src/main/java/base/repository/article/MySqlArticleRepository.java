@@ -2,6 +2,9 @@ package base.repository.article;
 
 import base.entity.Article;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -21,74 +24,31 @@ public class MySqlArticleRepository implements ArticleRepository {
             + COLUMN_PRICE + ", " + COLUMN_ID_MANUFACTURER + ") VALUES ( ?, ?, ?);";
 
     @Autowired
-    private Connection connection;
-
-    private Article extractUserFromResultSet(ResultSet rs) throws SQLException {
-        Article article = new Article();
-
-        article.setId(rs.getInt(COLUMN_ID_ARTICLE));
-        article.setName(rs.getString(COLUMN_ARTICLE));
-        article.setPrice(rs.getDouble(COLUMN_PRICE));
-        article.setManufacturerId(rs.getInt(COLUMN_ID_MANUFACTURER));
-
-        return article;
-    }
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public Set<Article> getAll() {
-        Set<Article> articlesAll = new HashSet<>();
-
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(SQL_SELECT_ALL);
-
-            while (resultSet.next()) {
-                Article article = extractUserFromResultSet(resultSet);
-                articlesAll.add(article);
-            }
-            return articlesAll;
-
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-        return articlesAll;
+        return new HashSet<>(jdbcTemplate.query(SQL_SELECT_ALL, new ArticleMapper()));
     }
 
     @Override
     public Optional<Article> articleId(int id) {
-        try {
-            PreparedStatement statement = connection.prepareStatement(SQL_BY_ID);
-            statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-                return Optional.of(extractUserFromResultSet(resultSet));
-            }
-
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-        return Optional.empty();
+        return Optional.of(jdbcTemplate.query(SQL_BY_ID, new ArticleMapper(), id).get(0));
     }
 
     @Override
     public int createArticle(String name, double price, int idManufacturer) {
-        int newId = 0;
+        KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        try {
-            PreparedStatement statement = connection.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, name);
-            statement.setDouble(2, price);
-            statement.setInt(3, idManufacturer);
-            statement.executeUpdate();
-            ResultSet resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                newId = resultSet.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return newId;
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection
+                    .prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, name);
+            ps.setDouble(2, price);
+            ps.setInt(3, idManufacturer);
+            return ps;
+        }, keyHolder);
+        return keyHolder.getKey().intValue();
     }
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.Set;
 
@@ -13,12 +14,17 @@ import java.util.Set;
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
-    @Qualifier("mySqlArticleRepository")
+    @Qualifier("localArticleRepository")
     private ArticleRepository articleRepository;
 
     @Override
     public int createArticle(String name, double price, int idManufactured) {
-        return articleRepository.createArticle(name, price, idManufactured);
+        try {
+            return articleRepository.createArticle(name, price, idManufactured);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Override
