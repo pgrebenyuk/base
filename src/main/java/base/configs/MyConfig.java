@@ -1,5 +1,6 @@
 package base.configs;
 
+//почистити
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,6 +43,8 @@ public class MyConfig {
     @Value("${spring.datasource.url}")
     private String url;
 
+    //цей клас незакінчений, дата сорса немає і поля вище не використовуються
+    //допиши датасорс, поля, які не використовуєш удали
 //    @Bean
 //    public DataSource dataSource() {
 //        final BasicDataSource ds = new BasicDataSource();
