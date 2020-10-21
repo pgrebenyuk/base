@@ -8,6 +8,8 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import javax.sql.DataSource;
 
 
@@ -35,6 +37,13 @@ public class MyConfig {
         ds.setPassword(password);
 
         return ds;
+    }
+
+    @Bean
+    public EntityManager getEntityManager() {
+        return Persistence
+                .createEntityManagerFactory("COLIBRI")
+                .createEntityManager();
     }
 
     @Bean

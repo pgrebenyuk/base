@@ -1,7 +1,16 @@
 package base.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "manufacturers")
 public class Manufacturer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "manufacturer", length = 32)
     private String name;
 
     public void setId(int id) {

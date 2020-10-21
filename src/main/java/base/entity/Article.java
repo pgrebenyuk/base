@@ -1,13 +1,31 @@
 package base.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "articles")
 public class Article {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "article", length = 32)
     private String name;
+
+    @Column(name = "price")
     private double price;
+
+    @Column(name = "id_manufacturer")
     private int manufacturerId;
 
     public Article() {
+    }
+
+    public Article(String name, double price, int manufacturerId) {
+        this.name = name;
+        this.price = price;
+        this.manufacturerId = manufacturerId;
     }
 
     public Article(int id, String name, double price, int manufacturerId) {

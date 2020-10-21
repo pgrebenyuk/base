@@ -2,22 +2,25 @@ package base.repository.manufacturer;
 
 import base.entity.Manufacturer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @Service
 public class MySqlManufacturerRepository implements ManufacturerRepository {
-    private static final String SQL_SELECT_ALL = "SELECT * FROM manufacturers";
+    private static final String SQL_SELECT_ALL = "SELECT c from Manufacturer c";
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    EntityManager entityManager;
 
     @Override
     public Set<Manufacturer> getAll() {
-        return new HashSet<>(jdbcTemplate.query(SQL_SELECT_ALL, new ManufacturerMapper()));
+        return new HashSet<Manufacturer>(entityManager
+                .createQuery(SQL_SELECT_ALL)
+                .getResultList());
     }
 
 }
