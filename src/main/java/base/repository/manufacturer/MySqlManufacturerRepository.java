@@ -10,9 +10,6 @@ import java.util.Set;
 
 @Service
 public class MySqlManufacturerRepository implements ManufacturerRepository {
-    //не юзаєш
-    private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
-    private static final String COLUMN_MANUFACTURER = "manufacturer";
     private static final String SQL_SELECT_ALL = "SELECT * FROM manufacturers";
 
     @Autowired

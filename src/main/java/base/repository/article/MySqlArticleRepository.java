@@ -14,8 +14,6 @@ import java.util.Set;
 
 @Service
 public class MySqlArticleRepository implements ArticleRepository {
-    //не використовується
-    private static final String COLUMN_ID_ARTICLE = "id_article";
     private static final String COLUMN_ARTICLE = "article";
     private static final String COLUMN_PRICE = "price";
     private static final String COLUMN_ID_MANUFACTURER = "id_manufacturer";
