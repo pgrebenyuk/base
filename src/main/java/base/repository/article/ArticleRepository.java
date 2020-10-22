@@ -10,6 +10,8 @@ import java.util.Set;
 @Service
 public interface ArticleRepository {
 
+    //зміни всюди, щоб був List, а не Set
+    //нам тут особливості сета не пригодяться
     Set<Article> getAll();
 
     Optional<Article> articleId(int id);

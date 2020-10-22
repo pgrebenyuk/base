@@ -10,5 +10,7 @@ import java.util.Set;
 public interface ArticleService {
     int createArticle(String name, double price, int idManufactured);
     Optional<Article> getArticle(int id);
+    //зміни всюди, щоб був List, а не Set
+    //нам тут особливості сета не пригодяться
     Set<Article> getAll();
 }

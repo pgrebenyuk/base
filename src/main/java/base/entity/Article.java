@@ -17,6 +17,11 @@ public class Article {
     @Column(name = "price")
     private double price;
 
+    //тепер хібернейт дає прикольну можливість,
+    // можна щоб сюди з бази зразу підтягувався кокуретний виробник цього товару
+    //почитай про анотації OneToOne, OneToMany, ManyToMany
+    //реалізуй те, щоб тут був виробник
+    //скоріше всього після цього вюшки ляжуть, того треба буде перевірити все
     @Column(name = "id_manufacturer")
     private int manufacturerId;
 

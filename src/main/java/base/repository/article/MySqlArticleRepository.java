@@ -12,6 +12,7 @@ import java.util.Set;
 @Service
 public class MySqlArticleRepository implements ArticleRepository {
 
+    //де модифікатор доступу?
     @Autowired
     EntityManager em;
 
