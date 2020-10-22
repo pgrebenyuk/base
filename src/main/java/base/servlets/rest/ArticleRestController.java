@@ -1,6 +1,7 @@
 package base.servlets.rest;
 
 import base.entity.Article;
+import base.entity.Manufacturer;
 import base.service.article.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,7 +19,7 @@ public class ArticleRestController {
 
     @GetMapping(value = "/rest/article", produces = MediaType.APPLICATION_JSON_VALUE)
     public Article doRest(@RequestParam int id) {
-        return articleService.getArticle(id).orElse(new Article("error", 0, 0));
+        return articleService.getArticle(id).orElse(new Article("error", 0, new Manufacturer( "error")));
     }
 
     @GetMapping(value = "/rest/articles", produces = MediaType.APPLICATION_JSON_VALUE)

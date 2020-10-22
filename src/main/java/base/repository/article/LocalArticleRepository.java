@@ -1,6 +1,7 @@
 package base.repository.article;
 
 import base.entity.Article;
+import base.entity.Manufacturer;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -10,11 +11,15 @@ public class LocalArticleRepository implements ArticleRepository {
     private List<Article> articles;
 
     public LocalArticleRepository() {
+        List<Manufacturer> manufacturers = Arrays.asList(
+                new Manufacturer("first"),
+                new Manufacturer("друга приватна"),
+                new Manufacturer("manufacturer"));
+
         articles = Arrays.asList(
-                new Article("рис", 1.9, 2),
-                new Article("макарон", 1.4, 2),
-                new Article("рукав", 1.9, 1)
-        );
+                new Article("рис", 1.9, (manufacturers.get(1))),
+                new Article("макарон", 1.4, (manufacturers.get(2))),
+                new Article("рукав", 1.9, (manufacturers.get(2))));
     }
 
     @Override
@@ -30,17 +35,12 @@ public class LocalArticleRepository implements ArticleRepository {
     }
 
     @Override
-    public int createArticle(String name, double price, int idManufacturer) {
+    public int createArticle(String name, double price, Manufacturer manufacturer) {
         int id = articles.stream()
                 .map(Article::getId)
                 .max(Integer::compare)
                 .get() + 1;
-        Article article = new Article();
-        article.setName(name);
-        article.setPrice(price);
-        article.setManufacturerId(idManufacturer);
-        articles.add(article);
-
+        new Article(name, price, manufacturer);
         return id;
     }
 }

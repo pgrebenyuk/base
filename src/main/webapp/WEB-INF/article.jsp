@@ -9,6 +9,6 @@
 <div>id: ${article.id}</div>
 <div>name: ${article.name}</div>
 <div>price: ${article.price}</div>
-<div>manufacturerId: ${article.manufacturerId}</div>
+<div>manufacturerId: ${article.manufacturer}</div>
 </body>
 </html>

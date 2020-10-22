@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -18,6 +19,11 @@ public class MySqlManufacturerRepository implements ManufacturerRepository {
     public List<Manufacturer> getAll() {
         return em.createQuery("from Manufacturer")
                 .getResultList();
+    }
+
+    @Override
+    public Optional<Manufacturer> manufacturerId(int id) {
+        return Optional.of(em.find(Manufacturer.class, id));
     }
 
 }

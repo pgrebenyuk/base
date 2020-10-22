@@ -17,9 +17,10 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     private ManufacturerRepository manufacturerRepository;
 
     @Override
-    public int getRandomManufacturersId() {
+    public Manufacturer getRandomManufacturer() {
         List<Manufacturer> manufacturerAll = manufacturerRepository.getAll();
-        return new Random().nextInt(manufacturerAll.size()) + 1;
+        int id = new Random().nextInt(manufacturerAll.size()) + 1;
+        return manufacturerAll.get(id);
     }
 
 }

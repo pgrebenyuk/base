@@ -22,8 +22,8 @@ public class CreateArticleServlet {
     public String doServlet(@RequestParam("name") String name,
                             @RequestParam("price") double price,
                             ModelMap model) {
-        int idManufactured = manufacturerService.getRandomManufacturersId();
-        int id = articleService.createArticle(name, price, idManufactured);
+        int id = articleService.createArticle(name, price
+                , manufacturerService.getRandomManufacturer());
         model.addAttribute("id", id);
         return PAGE;
     }

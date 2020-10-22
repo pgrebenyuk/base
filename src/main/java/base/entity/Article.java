@@ -17,21 +17,17 @@ public class Article {
     @Column(name = "price")
     private double price;
 
-    //тепер хібернейт дає прикольну можливість,
-    // можна щоб сюди з бази зразу підтягувався кокуретний виробник цього товару
-    //почитай про анотації OneToOne, OneToMany, ManyToMany
-    //реалізуй те, щоб тут був виробник
-    //скоріше всього після цього вюшки ляжуть, того треба буде перевірити все
-    @Column(name = "id_manufacturer")
-    private int manufacturerId;
+    @ManyToOne
+    @JoinColumn(name = "id_manufacturer")
+    private Manufacturer manufacturer;
 
     public Article() {
     }
 
-    public Article(String name, double price, int manufacturerId) {
+    public Article(String name, double price, Manufacturer manufacturer) {
         this.name = name;
         this.price = price;
-        this.manufacturerId = manufacturerId;
+        this.manufacturer = manufacturer;
     }
 
     public void setName(String name) {
@@ -42,8 +38,8 @@ public class Article {
         this.price = price;
     }
 
-    public void setManufacturerId(int manufacturer) {
-        this.manufacturerId = manufacturer;
+    public void setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
     public int getId() {
@@ -58,15 +54,15 @@ public class Article {
         return price;
     }
 
-    public int getManufacturerId() {
-        return manufacturerId;
+    public Manufacturer getManufacturer() {
+        return manufacturer;
     }
 
     @Override
     public String toString() {
         return "id=" + id + ": article=" + name
                 + ": price=" + price
-                + ": idManufacturer=" + manufacturerId;
+                + ": manufacturer=" + manufacturer;
     }
 
 }

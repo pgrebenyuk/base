@@ -1,6 +1,7 @@
 package base.service.article;
 
 import base.entity.Article;
+import base.entity.Manufacturer;
 import base.repository.article.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,9 +19,9 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleRepository articleRepository;
 
     @Override
-    public int createArticle(String name, double price, int idManufactured) {
+    public int createArticle(String name, double price, Manufacturer manufacturer) {
         try {
-            return articleRepository.createArticle(name, price, idManufactured);
+            return articleRepository.createArticle(name, price, manufacturer);
         } catch (SQLException e) {
             e.printStackTrace();
         }

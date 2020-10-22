@@ -11,7 +11,7 @@
     <div>id: ${article.id}</div>
     <div>name: ${article.name}</div>
     <div>price: ${article.price}</div>
-    <div>manufacturerId: ${article.manufacturerId}</div>
+    <div>manufacturer: ${article.manufacturer}</div>
 </c:forEach>
 </body>
 </html>

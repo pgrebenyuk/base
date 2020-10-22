@@ -1,6 +1,7 @@
 package base.repository.article;
 
 import base.entity.Article;
+import base.entity.Manufacturer;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -13,5 +14,5 @@ public interface ArticleRepository {
 
     Optional<Article> articleId(int id);
 
-    int createArticle(String name, double price, int idManufacturer) throws SQLException;
+    int createArticle(String name, double price, Manufacturer manufacturer) throws SQLException;
 }

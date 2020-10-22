@@ -1,6 +1,7 @@
 package base.repository.article;
 
 import base.entity.Article;
+import base.entity.Manufacturer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @Service
 public class MySqlArticleRepository implements ArticleRepository {
+
 
     @Autowired
     private EntityManager em;
@@ -27,10 +29,10 @@ public class MySqlArticleRepository implements ArticleRepository {
     }
 
     @Override
-    public int createArticle(String name, double price, int idManufacturer) {
+    public int createArticle(String name, double price, Manufacturer manufacturer) {
         EntityTransaction userTransaction = em.getTransaction();
         userTransaction.begin();
-        Article article = new Article(name, price, idManufacturer);
+        Article article = new Article(name, price, manufacturer);
         em.persist(article);
         em.flush();
         userTransaction.commit();
