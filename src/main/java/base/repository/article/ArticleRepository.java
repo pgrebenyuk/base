@@ -14,5 +14,5 @@ public interface ArticleRepository {
 
     Optional<Article> articleId(int id);
 
-    int createArticle(String name, double price, Manufacturer manufacturer) throws SQLException;
+    int createArticle(String name, double price, Manufacturer manufacturer);
 }

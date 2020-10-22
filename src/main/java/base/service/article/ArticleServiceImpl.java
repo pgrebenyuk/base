@@ -20,11 +20,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public int createArticle(String name, double price, Manufacturer manufacturer) {
-        try {
-            return articleRepository.createArticle(name, price, manufacturer);
-        } catch (SQLException e) {
-            return -1;
-        }
+        return articleRepository.createArticle(name, price, manufacturer);
     }
 
     @Override

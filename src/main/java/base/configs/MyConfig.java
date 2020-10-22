@@ -25,8 +25,7 @@ public class MyConfig {
     @Value("${spring.datasource.driverClassName}")
     private String driverClassName;
 
-    //а чого тут так?
-    @Value("jdbc:mysql://localhost:3306/base1?useSSL=TRUE&amp;serverTimezone=UTC&amp;useLegacyDatetimeCode=false&amp;allowPublicKeyRetrieval=true")
+    @Value("${spring.datasource.url}")
     private String url;
 
     @Bean
