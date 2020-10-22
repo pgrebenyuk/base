@@ -4,15 +4,12 @@ import base.entity.Article;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public interface ArticleRepository {
-
-    //зміни всюди, щоб був List, а не Set
-    //нам тут особливості сета не пригодяться
-    Set<Article> getAll();
+    List<Article> getAll();
 
     Optional<Article> articleId(int id);
 

@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -33,7 +33,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Set<Article> getAll() {
+    public List<Article> getAll() {
         return articleRepository.getAll();
     }
 

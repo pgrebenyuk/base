@@ -5,22 +5,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 
 @Service
 public class MySqlManufacturerRepository implements ManufacturerRepository {
 
-    //де модифікатор доступу?
     @Autowired
-    EntityManager em;
+    private EntityManager em;
 
     @Override
-    public Set<Manufacturer> getAll() {
-        return new HashSet<Manufacturer>(em
-                .createQuery("from Manufacturer")
-                .getResultList());
+    public List<Manufacturer> getAll() {
+        return em.createQuery("from Manufacturer")
+                .getResultList();
     }
 
 }

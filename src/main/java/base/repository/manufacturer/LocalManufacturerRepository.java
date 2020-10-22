@@ -4,23 +4,22 @@ import base.entity.Manufacturer;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class LocalManufacturerRepository implements ManufacturerRepository {
-    private Set<Manufacturer> manufacturers;
+    private List<Manufacturer> manufacturers;
 
     public LocalManufacturerRepository() {
-        manufacturers = new HashSet<>(Arrays.asList(
+        manufacturers = Arrays.asList(
                 new Manufacturer( "first"),
                 new Manufacturer( "second"),
                 new Manufacturer( "thirt")
-        ));
+        );
     }
 
     @Override
-    public Set<Manufacturer> getAll() {
+    public List<Manufacturer> getAll() {
         return manufacturers;
     }
 

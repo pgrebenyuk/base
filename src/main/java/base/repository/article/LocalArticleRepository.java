@@ -7,18 +7,18 @@ import java.util.*;
 
 @Service
 public class LocalArticleRepository implements ArticleRepository {
-    private Set<Article> articles;
+    private List<Article> articles;
 
     public LocalArticleRepository() {
-        articles = new HashSet<>(Arrays.asList(
+        articles = Arrays.asList(
                 new Article("рис", 1.9, 2),
                 new Article("макарон", 1.4, 2),
                 new Article("рукав", 1.9, 1)
-        ));
+        );
     }
 
     @Override
-    public Set<Article> getAll() {
+    public List<Article> getAll() {
         return articles;
     }
 

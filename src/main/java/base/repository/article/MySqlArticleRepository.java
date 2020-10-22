@@ -5,22 +5,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class MySqlArticleRepository implements ArticleRepository {
 
-    //де модифікатор доступу?
     @Autowired
-    EntityManager em;
+    private EntityManager em;
 
     @Override
-    public Set<Article> getAll() {
-        return new HashSet<Article>(em
-                .createQuery("from Article")
-                .getResultList());
+    public List<Article> getAll() {
+        return em.createQuery("from Article")
+                .getResultList();
     }
 
     @Override

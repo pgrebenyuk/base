@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 @Service
 public class ManufacturerServiceImpl implements ManufacturerService {
@@ -18,7 +18,7 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Override
     public int getRandomManufacturersId() {
-        Set<Manufacturer> manufacturerAll = manufacturerRepository.getAll();
+        List<Manufacturer> manufacturerAll = manufacturerRepository.getAll();
         return new Random().nextInt(manufacturerAll.size()) + 1;
     }
 

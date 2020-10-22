@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.Set;
+import java.util.List;
 
 @Controller
 public class ArticlesServlet {
@@ -18,7 +18,7 @@ public class ArticlesServlet {
 
     @GetMapping("/articles")
     public String doServlet(ModelMap model) {
-        Set<Article> articlesAll = articleService.getAll();
+        List<Article> articlesAll = articleService.getAll();
         model.addAttribute("articlesAll", articlesAll);
         return PAGE;
     }
