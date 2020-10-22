@@ -11,9 +11,9 @@ public class LocalArticleRepository implements ArticleRepository {
 
     public LocalArticleRepository() {
         articles = new HashSet<>(Arrays.asList(
-                new Article(1, "рис", 1.9, 2),
-                new Article(2, "макарон", 1.4, 2),
-                new Article(3, "рукав", 1.9, 1)
+                new Article("рис", 1.9, 2),
+                new Article("макарон", 1.4, 2),
+                new Article("рукав", 1.9, 1)
         ));
     }
 
@@ -36,7 +36,6 @@ public class LocalArticleRepository implements ArticleRepository {
                 .max(Integer::compare)
                 .get() + 1;
         Article article = new Article();
-        article.setId(id);
         article.setName(name);
         article.setPrice(price);
         article.setManufacturerId(idManufacturer);

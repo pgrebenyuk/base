@@ -7,14 +7,18 @@ import javax.persistence.*;
 public class Manufacturer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_manufacturer")
     private int id;
 
-    @Column(name = "manufacturer", length = 32)
+    @Column(name = "manufacturer")
     private String name;
 
-    public void setId(int id) {
-        this.id = id;
+    public Manufacturer() {
+    }
+
+    public Manufacturer(String name) {
+        this.name = name;
     }
 
     public void setName(String name) {
@@ -27,14 +31,6 @@ public class Manufacturer {
 
     public String getName() {
         return name;
-    }
-
-    public Manufacturer() {
-    }
-
-    public Manufacturer(int id, String name) {
-        this.id = id;
-        this.name = name;
     }
 
     @Override

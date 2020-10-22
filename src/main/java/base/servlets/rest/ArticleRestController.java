@@ -18,7 +18,7 @@ public class ArticleRestController {
 
     @GetMapping(value = "/rest/article", produces = MediaType.APPLICATION_JSON_VALUE)
     public Article doRest(@RequestParam int id) {
-        return articleService.getArticle(id).orElse(new Article(0, "error", 0, 0));
+        return articleService.getArticle(id).orElse(new Article("error", 0, 0));
     }
 
     @GetMapping(value = "/rest/articles", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -7,10 +7,11 @@ import javax.persistence.*;
 public class Article {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_article")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "article", length = 32)
+    @Column(name = "article")
     private String name;
 
     @Column(name = "price")
@@ -26,17 +27,6 @@ public class Article {
         this.name = name;
         this.price = price;
         this.manufacturerId = manufacturerId;
-    }
-
-    public Article(int id, String name, double price, int manufacturerId) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.manufacturerId = manufacturerId;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setName(String name) {

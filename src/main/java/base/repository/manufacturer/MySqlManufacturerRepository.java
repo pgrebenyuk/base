@@ -11,15 +11,14 @@ import java.util.Set;
 
 @Service
 public class MySqlManufacturerRepository implements ManufacturerRepository {
-    private static final String SQL_SELECT_ALL = "SELECT c from Manufacturer c";
 
     @Autowired
-    EntityManager entityManager;
+    EntityManager em;
 
     @Override
     public Set<Manufacturer> getAll() {
-        return new HashSet<Manufacturer>(entityManager
-                .createQuery(SQL_SELECT_ALL)
+        return new HashSet<Manufacturer>(em
+                .createQuery("from Manufacturer")
                 .getResultList());
     }
 

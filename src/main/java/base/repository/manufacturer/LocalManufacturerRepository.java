@@ -13,9 +13,9 @@ public class LocalManufacturerRepository implements ManufacturerRepository {
 
     public LocalManufacturerRepository() {
         manufacturers = new HashSet<>(Arrays.asList(
-                new Manufacturer(1, "first"),
-                new Manufacturer(2, "second"),
-                new Manufacturer(3, "thirt")
+                new Manufacturer( "first"),
+                new Manufacturer( "second"),
+                new Manufacturer( "thirt")
         ));
     }
 
