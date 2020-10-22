@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,9 +28,13 @@ public class MySqlArticleRepository implements ArticleRepository {
 
     @Override
     public int createArticle(String name, double price, int idManufacturer) {
+        EntityTransaction userTransaction = em.getTransaction();
+        userTransaction.begin();
         Article article = new Article(name, price, idManufacturer);
         em.persist(article);
         em.flush();
+        userTransaction.commit();
+
         return article.getId();
     }
 
