@@ -20,13 +20,11 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public int createArticle(String name, double price, Manufacturer manufacturer) {
-        //тут ніхто не кидає помилку
         try {
             return articleRepository.createArticle(name, price, manufacturer);
         } catch (SQLException e) {
-            e.printStackTrace();
+            return -1;
         }
-        return 0;
     }
 
     @Override
