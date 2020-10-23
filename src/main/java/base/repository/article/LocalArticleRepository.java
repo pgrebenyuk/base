@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class LocalArticleRepository implements ArticleRepository {
+public abstract class LocalArticleRepository implements ArticleRepository {
     private List<Article> articles;
 
     public LocalArticleRepository() {
@@ -27,8 +27,7 @@ public class LocalArticleRepository implements ArticleRepository {
         return articles;
     }
 
-    @Override
-    public Optional<Article> articleId(int idArtical) {
+    public Optional<Article> findById(int idArtical) {
         return articles.stream()
                 .filter(article -> article.getId() == idArtical)
                 .findFirst();

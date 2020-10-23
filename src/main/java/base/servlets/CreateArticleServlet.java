@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CreateArticleServlet {
     private static final String PAGE = "newArticleCreated";
+    private static final String PAGE_ERROR = "articleError";
 
     @Autowired
     private ArticleService articleService;
@@ -22,9 +23,13 @@ public class CreateArticleServlet {
     public String doServlet(@RequestParam("name") String name,
                             @RequestParam("price") double price,
                             ModelMap model) {
-        int id = articleService.createArticle(name, price
-                , manufacturerService.getRandomManufacturer());
-        model.addAttribute("id", id);
-        return PAGE;
+        if (manufacturerService.getRandomManufacturer().isPresent()) {
+            int id = articleService.createArticle(name, price
+                    , manufacturerService.getRandomManufacturer().get());
+            model.addAttribute("id", id);
+            return PAGE;
+        } else {
+            return PAGE_ERROR;
+        }
     }
 }

@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class LocalManufacturerRepository implements ManufacturerRepository {
+public abstract class LocalManufacturerRepository implements ManufacturerRepository {
     private List<Manufacturer> manufacturers;
 
-    public LocalManufacturerRepository() {
+    private LocalManufacturerRepository() {
         manufacturers = Arrays.asList(
                 new Manufacturer( "first"),
                 new Manufacturer( "second"),
@@ -19,13 +19,11 @@ public class LocalManufacturerRepository implements ManufacturerRepository {
         );
     }
 
-    @Override
     public List<Manufacturer> getAll() {
         return manufacturers;
     }
 
-    @Override
-    public Optional<Manufacturer> manufacturerId(int id){
+    public Optional<Manufacturer> findById(int id){
         return manufacturers.stream()
                 .filter(article -> article.getId() == id)
                 .findFirst();

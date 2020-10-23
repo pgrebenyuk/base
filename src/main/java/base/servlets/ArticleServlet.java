@@ -22,9 +22,9 @@ public class ArticleServlet {
         Optional<Article> article = articleService.getArticle(id);
         if (article.isPresent()) {
             model.addAttribute("article", article.get());
+            return PAGE;
         } else {
             return PAGE_ERROR;
         }
-        return PAGE;
     }
 }
