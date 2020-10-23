@@ -3,7 +3,6 @@ package base.service.manufacturer;
 import base.entity.Manufacturer;
 import base.repository.manufacturer.ManufacturerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -13,7 +12,6 @@ import java.util.Random;
 public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Autowired
-    @Qualifier("mySqlManufacturerRepository")
     private ManufacturerRepository manufacturerRepository;
 
     @Override
