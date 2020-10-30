@@ -1,4 +1,4 @@
-package base.servlets.rest;
+package base.controller.rest;
 
 import base.entity.Article;
 import base.entity.Manufacturer;
