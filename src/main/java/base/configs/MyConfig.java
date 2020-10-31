@@ -1,14 +1,10 @@
 package base.configs;
 
-import base.service.user.UserDetailsServiceImpl;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -56,13 +52,7 @@ public class MyConfig {
         bean.setViewClass(JstlView.class);
         bean.setPrefix("/WEB-INF/");
         bean.setSuffix(".jsp");
-        bean.setViewNames("login");
         return bean;
-    }
-
-    @Bean
-    public UserDetailsService getUserDetailsService(){
-        return new UserDetailsServiceImpl();
     }
 
 }
