@@ -1,4 +1,4 @@
-package base.servlets;
+package base.controller;
 
 import base.service.article.ArticleService;
 import base.service.manufacturer.ManufacturerService;
