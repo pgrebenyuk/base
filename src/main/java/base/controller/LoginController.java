@@ -1,18 +1,16 @@
 package base.controller;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-//цей контроллер потрібен тільки, якщо використовуєш свою логін сторінку
-//якщо використовувати логін спрінга, то він все створить сам
 @Controller
 public class LoginController {
 
     @GetMapping("/login")
-    //ввідступ перед дужкою
-    //непотрібний параметр model, можна без нього
-    public String loginPage(Model model){
+    public String loginPage() {
         return "login";
     }
 
