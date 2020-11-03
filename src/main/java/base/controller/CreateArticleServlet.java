@@ -26,7 +26,6 @@ public class CreateArticleServlet {
     private ManufacturerService manufacturerService;
 
     @GetMapping("/create-article")
-    @Cacheable("articles")
     public String doServlet(@RequestParam("name") String name,
                             @RequestParam("price") double price,
                             ModelMap model) {

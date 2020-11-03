@@ -19,7 +19,7 @@ public class ArticleRestController {
     private ArticleService articleService;
 
     @GetMapping(value = "/rest/article", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Cacheable("articles")
+    @Cacheable(value = "articles", key = "#id")
     public Article doRest(@RequestParam int id) {
         return articleService.getArticle(id).orElse(new Article("error", 0, new Manufacturer( "error")));
     }
