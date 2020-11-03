@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--треба почистити пом від всіх непотрібних коментів-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-<!--        ось тут ти вказав яка версія спрінг бут
-в залежності від неї спрінг бут буде підтягувати специфічні для версії залежності
-наприклад, якщо в нас обох версія спрінг бут однакова, то я буду впевнений, що версія сервлетів
-нам підтягнеться однакова
-спрінг бут бере дуже багато залежностей на себе і підтягує їх-->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-<!--        якщо нажмеш ctr і наведеш на версію нижче, то зможеш перейти на pom.xml цієї версії спрінг бут
-і подивитись що там робиться-->
         <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
@@ -21,12 +13,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>base Maven Webapp</name>
-<!--    в тебе немає url-->
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
     <properties>
-<!--        в нас вже 11 джава-->
-        <java.version>1.8</java.version>
+        <java.version>1.11</java.version>
     </properties>
 
     <dependencies>
@@ -45,22 +33,20 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
 <!--            цю штуку по ідеї spring-boot-starter-data мав би замінити, так як в нас спрінг бут-->
+            <!--            в мене не хоче-->
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
             <version>2.3.4.RELEASE</version>
         </dependency>
         <dependency>
-<!--            не дуже правильно, коли немає версії, тоді мавен завжди буде брати найновішу
- і може якось щось поламатись
- в спрінг буті використовувати його штуки типу spring-boot-starter-security без версії це нормально
- бо вверху ти об*явив парента і він буде вирішувати які версії підтягнути
- зараз в тебе спрінг бут 2.3.4 наприклад, то він буде тягнути завжди однакові залежності
-
- а от коли ти сам тягнеш, як тут нижче, то краще версію зафіксувати
- -->
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.21</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -68,9 +54,9 @@
             <version>1.2</version>
         </dependency>
         <dependency>
-<!--            немає версії-->
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
+            <version>9.0.38</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -91,13 +77,6 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
             <version>2.0.0</version>
-        </dependency>
-
-<!--        краще все що подібне групувати разом
-            наприклад все що від спрінг бут разом-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
     </dependencies>
 
