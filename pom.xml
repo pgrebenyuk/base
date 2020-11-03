@@ -6,19 +6,16 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.4.RELEASE</version>
-<!--        комент-->
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>org.example</groupId>
     <artifactId>base</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <name>base Maven Webapp</name>
     <properties>
-<!--        ?????-->
-        <java.version>1.11</java.version>
+        <java.version>11</java.version>
+        <hibernate.version>5.4.22.Final</hibernate.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -32,22 +29,15 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-        <dependency>
-<!--            так а ти попробував?
-<groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
-    -->
-<!--            цю штуку по ідеї spring-boot-starter-data мав би замінити, так як в нас спрінг бут-->
-            <!--            в мене не хоче-->
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.3.4.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -72,14 +62,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-<!--            ця версія однакова для 2 звлежностей і вони повязані
-можна її винести як проперті вверху-->
-            <version>5.4.22.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.4.22.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -87,7 +75,6 @@
             <version>2.0.0</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -96,6 +83,5 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
 
