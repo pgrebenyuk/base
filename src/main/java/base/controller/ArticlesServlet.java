@@ -3,6 +3,7 @@ package base.controller;
 import base.entity.Article;
 import base.service.article.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ public class ArticlesServlet {
 
     @GetMapping("/articles")
     @PostMapping("/articles")
+    @Cacheable("articles")
     public String doServlet(ModelMap model) {
 
         List<Article> articlesAll = articleService.getAll();

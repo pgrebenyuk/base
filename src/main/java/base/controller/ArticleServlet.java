@@ -6,6 +6,7 @@ import base.service.article.ArticleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ public class ArticleServlet {
     private ArticleService articleService;
 
     @GetMapping("/article")
+    @Cacheable("articles")
     public String doServlet(@RequestParam("id") int id, ModelMap model) {
         Optional<Article> article = articleService.getArticle(id);
         if (article.isPresent()) {
