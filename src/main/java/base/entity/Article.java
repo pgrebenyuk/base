@@ -1,10 +1,15 @@
 package base.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "articles")
+@Data
+@NoArgsConstructor
 public class Article implements Serializable {
 
     @Id
@@ -22,41 +27,10 @@ public class Article implements Serializable {
     @JoinColumn(name = "id_manufacturer")
     private Manufacturer manufacturer;
 
-    public Article() {
-    }
-
     public Article(String name, double price, Manufacturer manufacturer) {
         this.name = name;
         this.price = price;
         this.manufacturer = manufacturer;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public void setManufacturer(Manufacturer manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public Manufacturer getManufacturer() {
-        return manufacturer;
     }
 
     @Override
